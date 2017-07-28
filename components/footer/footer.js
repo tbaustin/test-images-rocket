@@ -33,7 +33,8 @@ export default class extends React.Component {
 						<div>&copy; 2017 <Link href='/' prefetch><a>Rocket Broadheads</a></Link></div>
 						<div>
 							<Link href='/contact'><a>Contact</a></Link>
-							<Link href='/legal'><a>Legal</a></Link>
+							<Link href='/privacy'><a>Privacy Policy</a></Link>
+							<Link href='/terms'><a>Terms of Service</a></Link>
 						</div>
 					</section>
 				</section>
@@ -63,7 +64,7 @@ export default class extends React.Component {
 					a{
 						color: #fff;
 						font-weight: normal;
-						padding: 0 20px;
+						padding: 0 12px;
 						&:first-of-type{
 							padding-left: 0;
 						}
