@@ -13,27 +13,19 @@ import P from 'components/paragraph'
 import H1 from 'components/h1'
 import H2 from 'components/h2'
 import H3 from 'components/h3'
-import Youtube from 'components/embed/youtube'
-import DealerLocator from 'components/dealer-locator/dealer-locator'
-import WriteReview from 'components/write-review'
 import Error from 'components/messages/error'
 import Info from 'components/messages/info'
 import Loader from 'components/loader'
 import Modal from 'components/modal'
-import ReviewList from 'components/reviews/review-list'
 import Header from 'components/header/header'
 import Footer from 'components/footer/footer'
 
-/* Import sample data */
-import reviewData from '../content/sample-reviews.json'
-import mapStyles from '../styles/mapStyle.json'
 
 export default class extends React.Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			modalShowing: false,
-			reviewsLoaded: 2
+			modalShowing: false
 		}
 	}
 	render(){
@@ -91,15 +83,6 @@ export default class extends React.Component {
 						<h3>Animations</h3>
 						<h4>Loading:</h4>
 						<Loader />
-					</div>
-					<div>
-						<h3>Reviews</h3>
-						<ReviewList reviews={reviewData.reviews} title={"Product reviews for "+reviewData.sku.toUpperCase()} average={reviewData.reviewAverage} length={this.state.reviewsLoaded} />
-					</div>
-					<div>
-						<h3>Embeds</h3>
-						<Youtube id='aGoH40XPGR4'></Youtube>
-						<DealerLocator brand="goalrilla" mapStyles={mapStyles.styles} distance="30" zip="47713" />
 					</div>
 					<div>
 						<h3>Pages</h3>

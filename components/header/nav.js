@@ -1,195 +1,97 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-
-const breakpoint = 1000
+import Link from 'next/link'
+import settings from '../../styles/settings'
 
 export default class extends React.Component {
 	constructor(props){
 		super(props)
-		this.state = { showing: false }
-		this.hideDropdowns = this.hideDropdowns.bind(this)
-		this.clickHandler = this.clickHandler.bind(this)
+		this.onClick = this.onClick.bind(this)
 	}
-	componentDidMount(){
-		const el = ReactDOM.findDOMNode(this)
-		this.setState({
-			el: el,
-			dropdowns: el.querySelectorAll('ul')
-		})
-	}
-	hideDropdowns(){
-		for(let i = this.state.dropdowns.length; i--;){
-			this.state.dropdowns[i].classList.remove('showDropdown')
-		}
-	}
-	clickHandler(e){
-		const w = window.innerWidth ||
-			document.documentElement.clientWidth ||
-			document.body.clientWidth
-		// If mobile menu
-		if(w < breakpoint){
-			if(e.target.tagName === 'A'){
-				console.log('Link clicked')
-				console.log(e.target.parentElement)
-				const dropdown = e.target.parentElement.querySelector('ul')
-				if(dropdown){
-					e.preventDefault()
-					this.hideDropdowns()
-					dropdown.classList.add('showDropdown')
-				}
-				else{
-					this.hideDropdowns()
-				}
-			}
-			else{
-				if(this.props.onClose){
-					this.props.onClose()
-				}
-			}
+	onClick(e){
+		if(e.target.tagName !== 'A'){
+
 		}
 	}
 	render(){
 		return (
-			<nav className={`${this.props.showing ? 'show' : ''} ${this.props.className}`} onClick={this.clickHandler}>
-
-				<ul>
-					<li>
-						<a href='#'>Hoops</a>
-					</li>
-					<li>
-						<a href='#'>Training</a>
-					</li>
-					<li>
-						<a href='#'>Services</a>
-						<ul>
-							<li>
-								<a href='#'>Basketball</a>
-								<ul>
-									<li><a href='#'>Goalrilla</a></li>
-									<li><a href='#'>Goalsetter</a></li>
-									<li><a href='#'>Silverback</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href='#'>Table Tennis</a>
-								<ul>
-									<li><a href='#'>Stiga</a></li>
-									<li><a href='#'>Ping Pong</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href='#'>Archery</a>
-								<ul>
-									<li><a href='#'>Bear</a></li>
-									<li><a href='#'>Trophy Ridge</a></li>
-									<li><a href='#'>Cajun Bowfishing</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href='#'>Contact</a>
-					</li>
-				</ul>
-
-
+			<nav className={ this.props.showing ? 'showing' : '' } onClick={ this.props.onClick }>
+				<section>
+					<Link prefetch href='/product/ar100sh'><a>Steelhead&reg;</a></Link>
+					<Link prefetch href='/product/ar100sw'><a>Sidewinder&reg;</a></Link>
+					<Link prefetch href='/product/ar100us'><a>Ultimate Steel&reg;</a></Link>
+					<Link prefetch href='/product/ar100hh'><a>Hammerhead&reg;</a></Link>
+				</section>
 				<style jsx>{`
 					nav{
-						user-select: none;
-						text-transform: uppercase;
 						position: fixed;
+						z-index: 20;
 						top: 0;
-						left: 0;
 						right: 0;
 						bottom: 0;
-						background-color: rgba(0, 0, 0, .7);
+						left: 0;
+						background-color: rgb(0, 0, 0, .8);
 						display: none;
-						&.show{
-							display: block;
-						}
-						&:after{
-							content: '';
-							display: block;
-							clear: both;
-						}
-						& ul{
-							display: none;
-						}
-						& > ul{
-							margin-top: 100px;
-							margin-left: 20px;
-							& li{
-								background-color: #FF671B;
-								margin-bottom: 20px;
-								width: 130px;
-								position: relative;
-								& a{
-									display: block;
-									padding: 16px 10px;
-								}
-								&:last-of-type{
-									margin-bottom: 0;
-								}
-							}
-						}
-						& .showDropdown{
-							display: block;
-						}
-						& ul{
-							list-style-type: none;
-							padding: 0;
-							/* Dropdowns */
-							& ul{
-								position: absolute;
-								width: 100vw;
-								font-size: .7em;
-								left: 140px;
-								top: 8px;
-								& li{
-									background-color: #fff;
-								}
-								& a{
-									color: #000;
-									padding: 10px 8px;
-								}
-							}
-						}
 					}
-					.show{
-						& > ul{
-							display: block;
-						}
+					section{
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						text-align: center;
+						text-transform: uppercase;
+						font-size: 3vw;
+						letter-spacing: 1vw;
+						font-weight: bold;
+						font-style: italic;
 					}
 					a{
 						color: #fff;
 						display: block;
-						text-decoration: none;
-						padding: 9px;
+						padding: 3vh 0;
+						border-bottom: 1px solid #fff;
+						&:last-of-type{
+							border-bottom: 0;
+						}
 						&:hover{
-							background-color: rgba(0, 0, 0, .1);
+							color: #860e1b;
 						}
 					}
-					@media(min-width:${breakpoint}px){
+					.showing{
+						display: block;
+					}
+					@media(min-width: ${settings.navBreakpoint}px){
 						nav{
-							position: relative;
-							z-index: 2;
-							margin-bottom: 40px;
-							display: block;
+							position: absolute;
+							right: 100px;
+							top: 50%;
+							transform: translate(0, -50%);
+							bottom: auto;
+							left: auto;
+							display: inline-block;
+							z-index: 1;
 							background: transparent;
-							& > ul{
-								margin-top: 0;
-								display: block;
-								& > li{
-									display: inline-block;
-								}
-								& li{
-									background-color: transparent;
-								}
+							max-width: 1200px;
+						}
+						section{
+							position: static;
+							display: inline-block;
+							transform: none;
+							font-size: 1em;
+							letter-spacing: 3px;
+						}
+						a{
+							display: inline-block;
+							padding: 0 20px;
+							border: 0;
+							&:first-of-type{
+								padding-left: 0;
+							}
+							&:last-of-type{
+								padding-right: 0;
 							}
 						}
 					}
 				`}</style>
-
 			</nav>
 		)
 	}

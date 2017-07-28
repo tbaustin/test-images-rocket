@@ -64,6 +64,7 @@
     "postcss-easy-import": "^2.1.0",
     "postcss-loader": "^2.0.6",
     "privacy-policy": "escaladesports/privacy-policy#v1.0.3",
+    "raf": "^3.3.2",
     "raw-loader": "^0.5.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
