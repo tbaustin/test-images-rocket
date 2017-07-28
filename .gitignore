@@ -23,5 +23,4 @@ temp
 tmp
 temp-*
 
-# Remove for production
-img
+img/salsify
