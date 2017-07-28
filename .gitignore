@@ -12,9 +12,16 @@ node_modules/
 # Development/Environment
 dev
 .env
+out
+dist
+.next
+json
+static
 
 # Temporary
 temp
 tmp
 temp-*
-uploads
+
+# Remove for production
+img

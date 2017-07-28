@@ -1,0 +1,48 @@
+{
+  "sku": "b3300w",
+  "reviews": [
+    {
+      "reviewApproved": "FALSE",
+      "productId": "B3300W",
+      "userAlias": "Hawkeye33",
+      "userEmail": "hawkeye33@gmail.com",
+      "userLocation": "Burlington, VT, USA",
+      "reviewSummary": "Sturdy and able to withstand dunks.",
+      "reviewBody": "Does not rust - looks great after 3 years - very heavy duty - worth the price!",
+      "productRating": "4",
+      "recommendFriendReason": "",
+      "recommendFriend": "",
+      "improvesGameRating": "3",
+      "qualityRating": "4",
+      "valueRating": "4",
+      "recommendProduct": "TRUE",
+      "userAgeOpt": "7",
+      "userGenderOpt": "2",
+      "userDescriptionOpt": "1",
+      "lengthOwnedOpt": "5",
+      "submitTimestamp": "6/27/2017 13:05:00"
+    },
+    {
+      "reviewApproved": "FALSE",
+      "productId": "B3300W",
+      "userAlias": "Baron",
+      "userEmail": "redbaron2@yahoo.com",
+      "userLocation": "FL",
+      "reviewSummary": "Legit Hoop!",
+      "reviewBody": "This is my second goalrilla hoop and it does not disappoint. This is a quality hoop and Goalrilla stands behind their products. I use this in a half court slab in the back yard and I couldn't ask for more. The mechanism that raises and lowers the hoop failed after like 15 years on my first hoop and Goalrilla replaced my entire set up with the GSIII under warranty. No charge for shipping or anything. I've a very happy camper!",
+      "productRating": "5",
+      "recommendFriendReason": "",
+      "recommendFriend": "",
+      "improvesGameRating": "",
+      "qualityRating": "",
+      "valueRating": "",
+      "recommendProduct": "",
+      "userAgeOpt": "",
+      "userGenderOpt": "",
+      "userDescriptionOpt": "",
+      "lengthOwnedOpt": "",
+      "submitTimestamp": "6/27/2017 15:30:30"
+    }
+  ],
+  "reviewAverage": 4.5
+}
