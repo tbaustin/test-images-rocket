@@ -23,7 +23,11 @@ export default class extends React.Component{
 	render(){
 		return(
 			<Layout>
-				{ productEls }
+				<div>
+					{ productEls }
+				</div>
+				<style jsx>{`
+				`}</style>
 			</Layout>
 		)
 	}
