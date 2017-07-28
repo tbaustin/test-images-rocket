@@ -9,6 +9,10 @@ export default class extends React.Component {
 				</svg>
 				<style jsx>{`
 					div{
+						position: absolute;
+						top: 50%;
+						right: 30px;
+						transform: translate(0, -50%);
 						&:hover{
 							& .cls-1{
 								fill: #860e1b;

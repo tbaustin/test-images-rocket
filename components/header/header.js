@@ -22,20 +22,13 @@ export default class extends React.Component {
 						background: url('/static/header-bg.jpg') no-repeat center center;
 						background-size: cover;
 						lost-utility: clearfix;
+						position: relative;
+						min-height: 70px;
 					}
 					div{
+						@lost gutter 0;
 						lost-column: 1/3;
-						padding: 15px 0;
-						&:first-of-type{
-							padding-left: 30px;
-						}
-						&:nth-of-type(2){
-							text-align: center;
-						}
-						&:last-of-type{
-							padding-right: 30px;
-							text-align: right;
-						}
+						min-height: 10px;
 					}
 				`}</style>
 			</header>

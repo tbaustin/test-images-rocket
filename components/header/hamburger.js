@@ -6,14 +6,16 @@ export default class extends React.Component {
 	}
 	render(){
 		return (
-
 			<div className={`${this.props.showing ? 'active' : ''} ${this.props.className ? this.props.className : ''} hamburger hamburger--spin js-hamburger`} onClick={ this.props.onClick }>
 				<div className='hamburger-box'>
-					<div className='hamburger-inner'>
-					</div>
+					<div className='hamburger-inner'></div>
 				</div>
 				<style jsx>{`
 					.hamburger{
+						position: absolute;
+						top: 50%;
+						left: 30px;
+						transform: translate(0, -50%);
 						font: inherit;
 						display: inline-block;
 						overflow: visible;
@@ -27,12 +29,11 @@ export default class extends React.Component {
 						color: inherit;
 						border: 0;
 						background-color: transparent;
-						transform: scale(1);
 						&:hover{
 							& .hamburger-inner,
 							& .hamburger-inner:after,
 							& .hamburger-inner:before {
-								background-color: #ff671b;
+								background-color: #860e1b;
 							}
 						}
 					}
@@ -99,10 +100,6 @@ export default class extends React.Component {
 
 				`}</style>
 			</div>
-
-
-
-
 		)
 	}
 }
