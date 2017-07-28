@@ -77,8 +77,7 @@
     "sharp": "^0.18.2",
     "sitemap": "^1.13.0",
     "styled-jsx-postcss": "^0.2.0",
-    "terms-of-service": "escaladesports/terms-of-service#v1.0.4",
-    "usd-formatter": "^0.1.2"
+    "terms-of-service": "escaladesports/terms-of-service#v1.0.4"
   },
   "dependencies": {},
   "engines": {

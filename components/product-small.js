@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import usd from 'usd-formatter'
 
 export default class extends React.Component {
 	render() {
@@ -17,7 +16,7 @@ export default class extends React.Component {
 						<a>{ this.props.name }&reg;</a>
 					</Link>
 				</h1>
-				<div className='price'>{ usd(this.props.price) }</div>
+				<div className='price'>{ `$${this.props.price}` }</div>
 
 				<style jsx>{`
 					.outer{

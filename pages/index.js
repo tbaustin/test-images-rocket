@@ -26,8 +26,6 @@ export default class extends React.Component{
 				<div>
 					{ productEls }
 				</div>
-				<style jsx>{`
-				`}</style>
 			</Layout>
 		)
 	}
