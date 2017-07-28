@@ -5,14 +5,25 @@ export default class extends React.Component {
 	render() {
 		return(
 			<div className='outer'>
-				<Link prefect href={`/product/${this.props.id}`}>
+				<Link prefetch href={{
+						pathname: '/product',
+						query: {
+							product: this.props.id
+						}
+					}} as={`/product/${this.props.id}`}>
 					<a>
 						<img src={`/static/salsify/${this.props.img}-lg.jpg`} />
 					</a>
 				</Link>
 
 				<h1>
-					<Link prefect href={`/product/${this.props.id}`}>
+
+					<Link prefetch href={{
+							pathname: '/product',
+							query: {
+								product: this.props.id
+							}
+						}} as={`/product/${this.props.id}`}>
 						<a>{ this.props.name }&reg;</a>
 					</Link>
 				</h1>

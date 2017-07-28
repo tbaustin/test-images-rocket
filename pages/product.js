@@ -1,11 +1,15 @@
 import React from 'react'
+import Layout from 'components/_layout'
 
 export default class extends React.Component {
 
 	render(){
 		return(
-			<div>
-			</div>
+			<Layout>
+				<div>
+					This is a test
+				</div>
+			</Layout>
 		)
 	}
 }
