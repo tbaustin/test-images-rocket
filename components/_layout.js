@@ -31,8 +31,17 @@ export default class Layout extends React.Component {
 					<link type='text/css' rel='stylesheet' href='https://zygote.netlify.com/zygote-v1.css' />
 				</Head>
 				<Header />
-				{ this.props.children }
+				<main>
+					{ this.props.children }
+				</main>
 				<Footer />
+				<style jsx>{`
+					main{
+						max-width: 1200px;
+						padding: 30px;
+						margin: auto;
+					}
+				`}</style>
 				<script src='https://zygote.netlify.com/zygote-v1.js'></script>
 			</div>
 		)
