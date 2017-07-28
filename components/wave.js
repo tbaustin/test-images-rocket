@@ -5,10 +5,12 @@ import raf from 'raf'
 export default class extends React.Component {
 	constructor(props){
 		super(props)
+		this.state = {
+			animating: false
+		}
 	}
 	componentDidMount(){
 		const $this = this
-		this.animating = true
 		let unit = 100
 		let canvas, context, canvas2, context2,height, width, xAxis, yAxis
 		function init(){
@@ -20,6 +22,9 @@ export default class extends React.Component {
 			width = canvas.width
 			xAxis = Math.floor(height/2)
 			yAxis = 0
+			$this.setState({
+				animating: true
+			})
 			raf(draw)
 		}
 		function draw(){
@@ -27,7 +32,7 @@ export default class extends React.Component {
 			drawWave('#860e1b', 1, 3, 0)
 			draw.seconds = draw.seconds + .001
 			draw.t = draw.seconds*Math.PI
-			if($this.animating){
+			if($this.state.animating){
 				raf(draw)
 			}
 		}
@@ -58,18 +63,28 @@ export default class extends React.Component {
 		init()
 	}
 	componentWillUnmount(){
-		this.animating = false
+		this.setState({
+			animating: false
+		})
 	}
 	render() {
 		return (
 			<div>
-				<canvas></canvas>
+				<canvas className={ this.state.animating ? 'active' : '' }></canvas>
 				<style jsx>{`
 					canvas{
 						width: 100%;
-						height: 30px;
-						transform: scale(1, -1);
+						height: 40px;
+						transform: translate(0, -100%) scale(1, -1);
 						filter: FlipV;
+						opacity: 0;
+						transition: transform 1s, opacity 1s;
+						position: relative;
+						z-index: -1;
+					}
+					.active{
+						opacity: 1;
+						transform: translate(0, 0) scale(1, -1);
 					}
 				`}</style>
 			</div>

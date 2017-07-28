@@ -109,12 +109,6 @@ export default class extends React.Component {
 						margin-bottom: 20px;
 						font-weight: 200;
 					}
-					@media(min-width:1200px){
-						section{
-							margin-top: 50px;
-							margin-bottom: 100px;
-						}
-					}
 				`}</style>
 			</div>
 		)
