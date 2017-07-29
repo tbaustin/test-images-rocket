@@ -33,8 +33,14 @@ export default class extends React.Component {
 						<div>&copy; 2017 <Link href='/' prefetch><a>Rocket Broadheads</a></Link></div>
 						<div>
 							<Link href='/contact'><a>Contact</a></Link>
-							<Link href='/privacy'><a>Privacy Policy</a></Link>
-							<Link href='/terms'><a>Terms of Service</a></Link>
+							<Link href={{
+									pathname: '/page',
+									query: { id: 'privacy-policy' }
+								}} as='/privacy'><a>Privacy Policy</a></Link>
+							<Link href={{
+									pathname: '/page',
+									query: { id: 'terms-of-service' }
+								}} as='/terms'><a>Terms of Service</a></Link>
 						</div>
 					</section>
 				</section>
