@@ -70,21 +70,15 @@ export default class extends React.Component {
 	render() {
 		return (
 			<div>
-				<canvas className={ this.state.animating ? 'active' : '' }></canvas>
+				<canvas></canvas>
 				<style jsx>{`
 					canvas{
 						width: 100%;
 						height: 40px;
-						transform: translate(0, -100%) scale(1, -1);
+						transform: scale(1, -1);
 						filter: FlipV;
-						opacity: 0;
-						transition: transform 1s, opacity 1s;
 						position: relative;
 						z-index: -1;
-					}
-					.active{
-						opacity: 1;
-						transform: translate(0, 0) scale(1, -1);
 					}
 				`}</style>
 			</div>
