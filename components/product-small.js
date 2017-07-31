@@ -12,7 +12,7 @@ export default class extends React.Component {
 						}
 					}} as={`/product/${this.props.id}`}>
 					<a>
-						<img src={`/static/salsify/${this.props.img}-lg.jpg`} />
+						<img src={`/static/salsify/${this.props.img}-lg.jpg`} className='mainImg' />
 					</a>
 				</Link>
 
@@ -24,18 +24,35 @@ export default class extends React.Component {
 								product: this.props.id
 							}
 						}} as={`/product/${this.props.id}`}>
-						<a>{ this.props.name }&reg;</a>
+						<a>{ this.props.name }</a>
 					</Link>
 				</h1>
-				<div className='price'>{ `$${this.props.price}` }</div>
-
+				<div className='cut'>?" Cut (??? Grain)</div>
+				<div className='price'>${ this.props.price }</div>
+				<div className='qty'>{ `(QTY ?)` }</div>
+				<div
+					className='cartBtn'
+					data-id={this.props.id}
+					data-price={this.props.price}
+					data-img={`/static/salsify/${this.props.img}-lg.jpg`}
+					data-name={this.props.name}
+					data-open-cart
+					>
+					<img src='/static/dot.svg' />
+				</div>
 				<style jsx>{`
 					.outer{
 						text-align: center;
 						margin-bottom: 30px;
 					}
-					img{
+					.mainImg{
 						max-height: 150px;
+					}
+					.cartBtn{
+						cursor: pointer;
+						& img{
+							max-width: 60px;
+						}
 					}
 					@media(min-width: 600px){
 						.outer{
