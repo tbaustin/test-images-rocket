@@ -3,6 +3,9 @@ import Link from 'next/link'
 import settings from '../../styles/settings'
 
 export default class extends React.Component {
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render(){
 		return (
 			<div>

@@ -15,12 +15,16 @@ export default class extends React.Component {
 		}
 		this.toggleNav = this.toggleNav.bind(this)
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	toggleNav(){
 		this.setState({
 			showing: !this.state.showing
 		})
 	}
 	render(){
+		console.log('Rendering header')
 		return (
 			<section className='wrapper'>
 				<section className='bar'>

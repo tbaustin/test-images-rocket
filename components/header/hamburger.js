@@ -4,6 +4,9 @@ export default class extends React.Component {
 	constructor(props){
 		super(props)
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render(){
 		return (
 			<div className={`${this.props.showing ? 'active' : ''} ${this.props.className ? this.props.className : ''} hamburger hamburger--spin js-hamburger`} onClick={ this.props.onClick }>

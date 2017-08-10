@@ -7,6 +7,9 @@ export default class extends React.Component {
 		super(props)
 		this.onClick = this.onClick.bind(this)
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	onClick(e){
 		if(e.target.tagName !== 'A'){
 

@@ -2,6 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 
 export default class extends React.Component {
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render() {
 		return(
 			<div className='outer'>

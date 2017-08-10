@@ -18,7 +18,11 @@ export default class Layout extends React.Component {
 		}
 		logPageView()
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render(){
+		console.log('Rendering layout')
 		const siteName = pkg.title || pkg.name
 		return (
 			<div>

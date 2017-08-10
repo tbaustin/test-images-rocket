@@ -20,6 +20,9 @@ const productEls = productIds.map(id => {
 })
 
 export default class extends React.Component{
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render(){
 		return(
 			<Layout>

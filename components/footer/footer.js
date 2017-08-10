@@ -11,6 +11,9 @@ export default class extends React.Component {
 			animating: false
 		}
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	componentDidMount(){
 		const upperCanvas = document.querySelector('canvas')
 		const lowerCanvas = ReactDOM.findDOMNode(this).querySelector('canvas')

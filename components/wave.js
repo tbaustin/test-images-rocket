@@ -9,6 +9,9 @@ export default class extends React.Component {
 			animating: false
 		}
 	}
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	componentDidMount(){
 		const $this = this
 		let unit = 100
@@ -68,6 +71,7 @@ export default class extends React.Component {
 		})
 	}
 	render() {
+		console.log('Rendering wave')
 		return (
 			<div>
 				<canvas></canvas>

@@ -1,6 +1,9 @@
 import React from 'react'
 
 export default class extends React.Component {
+	shouldComponentUpdate(nextProps, nextState){
+		return false
+	}
 	render(){
 		return (
 			<div className='zygoteIco'>
