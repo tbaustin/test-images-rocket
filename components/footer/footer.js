@@ -3,6 +3,7 @@ import settings from '../../styles/settings'
 import Link from 'next/link';
 import ReactDOM from 'react-dom'
 import raf from 'raf'
+const year = new Date().getFullYear()
 
 export default class extends React.Component {
 	constructor(props){
@@ -33,7 +34,7 @@ export default class extends React.Component {
 				<canvas></canvas>
 				<section className='inner'>
 					<section className='constrain'>
-						<div>&copy; 2017 <Link href='/' prefetch><a>Rocket Broadheads</a></Link></div>
+						<div>&copy; { year } <Link href='/' prefetch><a>Rocket Broadheads</a></Link></div>
 						<div>
 							<Link href='/contact'><a>Contact</a></Link>
 							<Link href={{
