@@ -28,6 +28,16 @@ export default class extends React.Component {
 		return (
 			<section className='wrapper'>
 				<section className={ `bar ${this.props.home ? 'home' : ''}` }>
+					{
+						this.props.home ?
+						(
+							<div>
+								<img src='/static/splat.png' className='splat' />
+								<h1>We make them lethal.<br />You drop them quick.</h1>
+							</div>
+						) :
+						''
+					}
 					<header>
 						<Nav showing={ this.state.showing } onClick={ this.toggleNav } />
 						<div className='ham'>
@@ -59,23 +69,43 @@ export default class extends React.Component {
 						min-height: 10px;
 					}
 					.home{
-						height: 43vh;
+						height: 50vh;
 						background: url('/static/home-bg.jpg') no-repeat bottom center;
 						background-size: cover;
 					}
-					@media(min-width:800px){
+					.splat{
+						position: absolute;
+						top: 0;
+						left: 0;
+						max-width: 35vw;
+					}
+					h1{
+						position: absolute;
+						z-index: 3;
+						font-size: 4vw;
+						text-align: center;
+						left: 0;
+						right: 0;
+						top: 8vh;
+					}
+					@media(min-width:700px){
 						.home{
 							height: 50vh;
 						}
 					}
-					@media(min-width:900px){
+					@media(min-width:800px){
 						.home{
 							height: 60vh;
 						}
 					}
-					@media(min-width:1000px){
+					@media(min-width:900px){
 						.home{
 							height: 70vh;
+						}
+					}
+					@media(min-width:1000px){
+						.home{
+							height: 95vh;
 						}
 					}
 					@media(min-width: ${settings.navBreakpoint}px){
@@ -86,6 +116,11 @@ export default class extends React.Component {
 							max-width: 1200px;
 							margin: auto;
 							min-height: 120px;
+						}
+						.home{
+							& header{
+								max-width: 100%;
+							}
 						}
 						.ham{
 							display: none;

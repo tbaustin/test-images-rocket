@@ -50,7 +50,7 @@ export default class extends React.Component {
 					data-name={ this.props.data.title }
 					data-open-cart
 					>
-					<img src='/static/dot.svg' />
+					<img src={ `/static/btn${this.props.data.order}.svg` } />
 				</div>
 				<style jsx>{`
 					.outer{
@@ -63,7 +63,7 @@ export default class extends React.Component {
 					.cartBtn{
 						cursor: pointer;
 						& img{
-							max-width: 60px;
+							max-width: 80px;
 						}
 					}
 					@media(min-width: 600px){
