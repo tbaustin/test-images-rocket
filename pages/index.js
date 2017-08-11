@@ -2,21 +2,14 @@ import React from 'react'
 import Layout from 'components/_layout'
 import Product from 'components/product-small'
 import { broadheads } from '../config/product.config'
+import queryProduct from 'query-product'
 
-const productIds = broadheads.product
-const productEls = productIds.map(id => {
-	id = id.toLowerCase()
-	const data = require(`../json/product/${id}.json`)
-	let img = data['Web Images']
-	if(typeof data['Web Images'] === 'object'){
-		img = img[0]
-	}
+
+const productEls = queryProduct({}).map((product, key) => {
+	console.log(product.title)
 	return <Product
-		id={ id }
-		name={ data['Item Name'] }
-		img={ img }
-		price={ Number(data['MSRP']) }
-		key={ id } />
+		data={ product }
+		key={ key } />
 })
 
 export default class extends React.Component{
@@ -25,7 +18,7 @@ export default class extends React.Component{
 	}
 	render(){
 		return(
-			<Layout>
+			<Layout home={ true }>
 				<div>
 					{ productEls }
 				</div>

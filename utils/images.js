@@ -51,7 +51,7 @@ function getAllImages(imgs){
 		if(typeof imgs === 'string'){
 			imgs = [ imgs ]
 		}
-		return imgs
+		return Promise.resolve(imgs)
 	}
 	return new Promise((resolve, reject) => {
 		return glob([ '**/*', '!**/.*', '!**/*.json' ], { cwd: 'img' }, (err, files) => {

@@ -2223,6 +2223,14 @@ fs-extra@^4.0.0:
     jsonfile "^3.0.0"
     universalify "^0.1.0"
 
+fs-extra@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.1.tgz#7fc0c6c8957f983f57f306a24e5b9ddd8d0dd880"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^3.0.0"
+    universalify "^0.1.0"
+
 fs-extra@~0.26.5:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.26.7.tgz#9ae1fdd94897798edab76d0918cf42d0c3184fa9"
@@ -4562,6 +4570,13 @@ process@~0.5.1:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
 
+product-to-json@escaladesports/product-to-json#v0.1.0:
+  version "0.1.0"
+  resolved "https://codeload.github.com/escaladesports/product-to-json/tar.gz/318b31213b5ac65c1cdc562ecdf519b2a29514f7"
+  dependencies:
+    fs-extra "^4.0.1"
+    glob-promise "^3.1.0"
+
 promise-each@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/promise-each/-/promise-each-2.2.0.tgz#3353174eff2694481037e04e01f77aa0fb6d1b60"
@@ -4638,6 +4653,10 @@ q@^1.1.2:
 qs@6.4.0, qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
+query-product@escaladesports/query-product#v1.0.2:
+  version "1.0.2"
+  resolved "https://codeload.github.com/escaladesports/query-product/tar.gz/1a30690009d8e0aebe924cfebb80845a3738a93a"
 
 query-string@^4.1.0:
   version "4.3.4"
@@ -5012,18 +5031,18 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
-salsify-image-downloader@escaladesports/salsify-image-downloader#v2.0.5:
-  version "2.0.5"
-  resolved "https://codeload.github.com/escaladesports/salsify-image-downloader/tar.gz/2fb66ee94cac5d47a79632c1cf6006455488650a"
+salsify-image-downloader@escaladesports/salsify-image-downloader#v2.0.6:
+  version "2.0.6"
+  resolved "https://codeload.github.com/escaladesports/salsify-image-downloader/tar.gz/686753ec57cf929ce01ae19a15691a5c9f1a4531"
   dependencies:
     fs-extra "^4.0.0"
     glob-all "^3.1.0"
     request "^2.81.0"
     sharp "^0.18.2"
 
-salsify-to-json@escaladesports/salsify-to-json#v2.0.3:
-  version "2.0.3"
-  resolved "https://codeload.github.com/escaladesports/salsify-to-json/tar.gz/f1b5d2becc89210b817f3463ea90a7e44a5f9131"
+salsify-to-json@escaladesports/salsify-to-json#v2.0.4:
+  version "2.0.4"
+  resolved "https://codeload.github.com/escaladesports/salsify-to-json/tar.gz/09e0344276427a8cc578a7d8a16520703b9a6d81"
   dependencies:
     fs-extra "^4.0.0"
     request "^2.81.0"
@@ -5691,6 +5710,10 @@ url@0.11.0, url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+usd-formatter@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/usd-formatter/-/usd-formatter-0.1.2.tgz#0ce389d06bd0ce151fa7f4050ad0c1498bad5cba"
 
 util-deprecate@~1.0.1:
   version "1.0.2"

@@ -1,21 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
+import usdFormatter from 'usd-formatter'
 
 export default class extends React.Component {
 	shouldComponentUpdate(nextProps, nextState){
 		return false
 	}
 	render() {
+		let img
+		if(typeof this.props.data['Web Images'] === 'object'){
+			img = this.props.data['Web Images'][0]
+		}
+		else{
+			img = this.props.data['Web Images']
+		}
+		img = `/static/salsify/${img}-lg.jpg`
 		return(
 			<div className='outer'>
 				<Link prefetch href={{
 						pathname: '/product',
 						query: {
-							product: this.props.id
+							product: this.props.data.id
 						}
-					}} as={`/product/${this.props.id}`}>
+					}} as={`/product/${this.props.data.id}`}>
 					<a>
-						<img src={`/static/salsify/${this.props.img}-lg.jpg`} className='mainImg' />
+						<img src={ img } className='mainImg' />
 					</a>
 				</Link>
 
@@ -24,21 +33,21 @@ export default class extends React.Component {
 					<Link prefetch href={{
 							pathname: '/product',
 							query: {
-								product: this.props.id
+								product: this.props.data.id
 							}
 						}} as={`/product/${this.props.id}`}>
-						<a>{ this.props.name }</a>
+						<a>{ this.props.data.title }</a>
 					</Link>
 				</h1>
-				<div className='cut'>?" Cut (??? Grain)</div>
-				<div className='price'>${ this.props.price }</div>
-				<div className='qty'>{ `(QTY ?)` }</div>
+				<div className='cut'>{ this.props.data.cut }" Cut { this.props.data.grain } Grain)</div>
+				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
+				<div className='qty'>(QTY { this.props.data.qty })</div>
 				<div
 					className='cartBtn'
-					data-id={this.props.id}
-					data-price={this.props.price}
-					data-img={`/static/salsify/${this.props.img}-lg.jpg`}
-					data-name={this.props.name}
+					data-id={ this.props.data.id }
+					data-price={ this.props.data.price }
+					data-img={ img }
+					data-name={ this.props.data.title }
 					data-open-cart
 					>
 					<img src='/static/dot.svg' />

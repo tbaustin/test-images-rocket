@@ -27,7 +27,7 @@ export default class extends React.Component {
 		console.log('Rendering header')
 		return (
 			<section className='wrapper'>
-				<section className='bar'>
+				<section className={ `bar ${this.props.home ? 'home' : ''}` }>
 					<header>
 						<Nav showing={ this.state.showing } onClick={ this.toggleNav } />
 						<div className='ham'>
@@ -57,6 +57,26 @@ export default class extends React.Component {
 						@lost gutter 0;
 						lost-column: 1/3;
 						min-height: 10px;
+					}
+					.home{
+						height: 43vh;
+						background: url('/static/home-bg.jpg') no-repeat bottom center;
+						background-size: cover;
+					}
+					@media(min-width:800px){
+						.home{
+							height: 50vh;
+						}
+					}
+					@media(min-width:900px){
+						.home{
+							height: 60vh;
+						}
+					}
+					@media(min-width:1000px){
+						.home{
+							height: 70vh;
+						}
 					}
 					@media(min-width: ${settings.navBreakpoint}px){
 						.bar{

@@ -1,18 +1,20 @@
 'use strict'
-// Get product IDs
-const config = require('../config/product.config')
-const ids = []
-for(let i in config){
-	const category = config[i]
-	if(category.product){
-		category.product.forEach(id => {
-			if(typeof id === 'string'){
-				ids.push(id)
-			}
-			else{
-				id.forEach(id => ids.push(id))
-			}
-		})
-	}
-}
-module.exports = ids
+const path = require('path')
+const glob = require('glob-promise')
+
+module.exports = uppercase => new Promise((resolve, reject) => {
+   glob('./markdown/product/*.md')
+      .then(files => {
+         const ids = []
+         files.forEach(file => {
+            let name = path.parse(file).name
+            if(uppercase){
+               name = name.toUpperCase()
+            }
+            ids.push(name)
+         })
+         return ids
+      })
+      .then(resolve)
+      .catch(reject)
+})
