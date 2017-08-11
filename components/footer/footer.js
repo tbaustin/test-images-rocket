@@ -40,6 +40,7 @@ export default class extends React.Component {
 									pathname: '/page',
 									query: { id: 'privacy-policy' }
 								}} as='/privacy'><a>Privacy Policy</a></Link>
+							<Link href='/legal'><a>Legal</a></Link>
 							<Link href={{
 									pathname: '/page',
 									query: { id: 'terms-of-service' }
