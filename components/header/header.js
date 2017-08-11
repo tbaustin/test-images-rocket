@@ -15,16 +15,12 @@ export default class extends React.Component {
 		}
 		this.toggleNav = this.toggleNav.bind(this)
 	}
-	shouldComponentUpdate(nextProps, nextState){
-		return false
-	}
 	toggleNav(){
 		this.setState({
 			showing: !this.state.showing
 		})
 	}
 	render(){
-		console.log('Rendering header')
 		return (
 			<section className='wrapper'>
 				<section className={ `bar ${this.props.home ? 'home' : ''}` }>
@@ -41,7 +37,7 @@ export default class extends React.Component {
 					<header>
 						<Nav showing={ this.state.showing } onClick={ this.toggleNav } />
 						<div className='ham'>
-							<Hamburger onClick={ this.toggleNav } />
+							<Hamburger onClick={ this.toggleNav } home={ this.props.home } />
 						</div>
 						<div>
 							<Logo />
@@ -87,6 +83,7 @@ export default class extends React.Component {
 						left: 0;
 						right: 0;
 						top: 8vh;
+						text-shadow: 3px 3px 10px rgba(0, 0, 0, .7);
 					}
 					@media(min-width:700px){
 						.home{

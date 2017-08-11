@@ -7,17 +7,14 @@ export default class extends React.Component {
 		super(props)
 		this.onClick = this.onClick.bind(this)
 	}
-	shouldComponentUpdate(nextProps, nextState){
-		return false
-	}
 	onClick(e){
 		if(e.target.tagName !== 'A'){
-
+			this.props.onClick()
 		}
 	}
 	render(){
 		return (
-			<nav className={ this.props.showing ? 'showing' : '' } onClick={ this.props.onClick }>
+			<nav className={ this.props.showing ? 'showing' : '' } onClick={ this.onClick }>
 				<section>
 					<Link prefetch href={{
 							pathname: '/product',
@@ -72,6 +69,7 @@ export default class extends React.Component {
 						display: block;
 						padding: 3vh 0;
 						border-bottom: 1px solid #fff;
+						text-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
 						&:last-of-type{
 							border-bottom: 0;
 						}
