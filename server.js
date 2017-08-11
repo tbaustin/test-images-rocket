@@ -18,6 +18,7 @@ router.then(router => {
 					app.render(req, res, router[i].page, router[i].query)
 				})
 			}
+			console.log(router)
 			server.get('*', (req, res) => handle(req, res))
 			server.listen(port)
 		})

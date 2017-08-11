@@ -3,9 +3,6 @@ import Link from 'next/link'
 import usdFormatter from 'usd-formatter'
 
 export default class extends React.Component {
-	shouldComponentUpdate(nextProps, nextState){
-		return false
-	}
 	render() {
 		let img
 		if(typeof this.props.data['Web Images'] === 'object'){

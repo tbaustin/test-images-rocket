@@ -25,9 +25,6 @@ export default class Layout extends React.Component {
 			zygote.findIcons()
 		}
 	}
-	shouldComponentUpdate(nextProps, nextState){
-		return false
-	}
 	render(){
 		const delimeter = ' | '
 		const siteName = pkg.title || pkg.name

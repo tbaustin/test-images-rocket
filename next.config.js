@@ -9,31 +9,18 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			const pages = {}
 
-			// Product pages
-			glob('./json/product/*.json')
+			fs.readJson('./json/product/all.json')
 				.then(products => {
-					products.forEach(file => {
-						const id = path.parse(file).name
-						pages[`/product/${id}`] = {
+					for(let i in products){
+						const product = products[i]
+						pages[`/product/${product.id}`] = {
 							page: '/product',
 							query: {
-								product: id
+								product: product.id
 							}
 						}
-						// Exclude submit reviews pages from sitemap
-						if(!sitemap){
-							/*
-							pages[`/write-review/${id}`] = {
-								page: '/write-review',
-								query: {
-									product: id
-								}
-							}
-							*/
-						}
-					})
+					}
 				})
-
 
 				// Component pages
 				.then(() => glob('./pages/*.js'))

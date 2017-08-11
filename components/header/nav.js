@@ -16,10 +16,7 @@ export default class extends React.Component {
 		return (
 			<nav className={ this.props.showing ? 'showing' : '' } onClick={ this.onClick }>
 				<section>
-					<Link prefetch href={{
-							pathname: '/product',
-							query: { product: 'ar100sh' }
-						}} as='/product/ar100sh'>
+					<Link prefetch href='/product?product=as1303b' as='/product/as1303b'>
 						<a>Steelhead&reg;</a>
 					</Link>
 					<Link prefetch href={{
