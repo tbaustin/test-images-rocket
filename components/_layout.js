@@ -17,17 +17,35 @@ export default class Layout extends React.Component {
 			window.GA_INITIALIZED = true
 		}
 		logPageView()
+		
+		// Zygote
+		if('zygote' in window){
+			zygote.findButtons()
+			zygote.findQty()
+			zygote.findIcons()
+		}
 	}
 	shouldComponentUpdate(nextProps, nextState){
 		return false
 	}
 	render(){
-		console.log('Rendering layout')
+		const delimeter = ' | '
 		const siteName = pkg.title || pkg.name
+		let pageTitle = this.props.title
+		let title
+		if(pageTitle){
+			title = `${pageTitle}${delimeter}${siteName}`
+		}
+		else if(pkg.description){
+			title = `${siteName}${delimeter}${pkg.description}`
+		}
+		else{
+			title = siteName
+		}
 		return (
 			<div>
 				<Head>
-					<title>{ this.props.title ? `${this.props.title} | ${siteName}` : siteName }</title>
+					<title>{ title }</title>
 					<meta charSet='utf-8' />
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 					<meta content={ this.props.description ? this.props.description : pkg.description } name='description' />
