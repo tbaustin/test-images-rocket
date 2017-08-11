@@ -6,3 +6,13 @@ price: 12.50
 qty: 3
 order: 3
 ---
+
+### Developed to remain stable during the high-speed forces.
+
+#### STAINLESS STEEL, BACON SKINNER®
+
+Extra-wide grind delivers a slaughterhouse-grade cut.
+
+#### SCALLOPED FERRULE
+
+Reduces surface area - boosting penetration and reducing wind drag.
