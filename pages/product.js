@@ -5,6 +5,21 @@ import queryProduct from 'query-product'
 import usdFormatter from 'usd-formatter'
 import NumberInput from 'components/forms/number'
 
+function getProduct(id){
+	let data = queryProduct({ id: id })[0]
+	if(data){
+		if(typeof data['Web Images'] === 'string'){
+			data['Web Images'] = [ data['Web Images'] ]
+		}
+	}
+	else{
+		data = {
+			'Web Images': []
+		}
+	}
+	return data
+}
+
 export default class extends React.Component {
 	constructor(props){
 		super(props)
@@ -18,48 +33,48 @@ export default class extends React.Component {
 			qty: e.target.value
 		})
 	}
+	static async getInitialProps(req){
+		console.log('Get Initial Props')
+		const props = getProduct(req.query.product)
+		return props
+	}
+	componentWillReceiveProps(){
+		this.setState({
+			qty: 1
+		})
+	}
 	render(){
-		let data = queryProduct({ id: this.props.url.query.product })[0]
-		if(data){
-			if(typeof data['Web Images'] === 'string'){
-				data['Web Images'] = [ data['Web Images'] ]
-			}
-		}
-		else{
-			data = {
-				'Web Images': []
-			}
-		}
+
 		return(
 			<Layout>
 				<div className='cont'>
 					<section>
-						<ProductImages images={ data['Web Images'] } />
+						<ProductImages images={ this.props['Web Images'] } />
 					</section>
 					<section>
-						<h1>{ data.title }</h1>
-						<h2>{ data.cut }" Cut ({ data.grain } grain)</h2>
-						<div dangerouslySetInnerHTML={{ __html: data.contents }} />
+						<h1>{ this.props.title }</h1>
+						<h2>{ this.props.cut }" Cut ({ this.props.grain } grain)</h2>
+						<div dangerouslySetInnerHTML={{ __html: this.props.contents }} />
 						<div className='info'>
-							<b>{ usdFormatter(data.price) }</b> <span>(QTY { data.qty })</span>
+							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
 						</div>
 						<div className='qty'>
 							<NumberInput
 								min='1'
 								labelStyle={{ marginBottom: 0 }}
-								handleChange={ this.qtyChange }
+								handleChange={ this.props.qtyChange }
 								/>
 						</div>
 						<div
 							className='cartBtn'
-							data-id={ data.id }
-							data-price={ data.price }
-							data-img={ `/static/salsify/${data['Web Images'][0]}-lg.jpg` }
-							data-name={ data.title }
+							data-id={ this.props.id }
+							data-price={ this.props.price }
+							data-img={ `/static/salsify/${this.props['Web Images'][0]}-lg.jpg` }
+							data-name={ this.props.title }
 							data-open-cart
-							data-qty={ this.state.qty }
+							data-qty={ this.props.qty }
 							>
-							<img src={ `/static/btn${data.order}.svg` } />
+							<img src={ `/static/btn${this.props.order}.svg` } />
 						</div>
 					</section>
 					<style jsx>{`
