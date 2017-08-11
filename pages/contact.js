@@ -14,7 +14,7 @@ export default class extends React.Component{
 				<main>
 					<section>
 						<H1>Contact Us</H1>
-						<Form>
+						<Form name='Contact' netlify>
 							<Input label='Name:' required />
 							<Input label='Email Address:' required />
 							<Textarea label='Message:' required />
