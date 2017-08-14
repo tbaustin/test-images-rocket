@@ -49,7 +49,6 @@ export default class extends React.Component {
 						text-transform: uppercase;
 						font-size: 3vw;
 						letter-spacing: 1vw;
-						font-weight: bold;
 						font-style: italic;
 					}
 					a{
@@ -58,6 +57,9 @@ export default class extends React.Component {
 						padding: 3vh 0;
 						border-bottom: 1px solid #fff;
 						text-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
+						font-weight: 700;
+						letter-spacing: 0px;
+						font-size: 1.1em;
 						&:last-of-type{
 							border-bottom: 0;
 						}
@@ -90,7 +92,7 @@ export default class extends React.Component {
 						}
 						a{
 							display: inline-block;
-							padding: 0 20px;
+							padding: 0 15px;
 							border: 0;
 							&:first-of-type{
 								padding-left: 0;

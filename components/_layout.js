@@ -48,6 +48,7 @@ export default class Layout extends React.Component {
 					<meta content={ this.props.description ? this.props.description : pkg.description } name='description' />
 					<style>{ style }</style>
 					<link type='text/css' rel='stylesheet' href='https://zygote.netlify.com/zygote-v1.css' />
+					<link href="https://fonts.googleapis.com/css?family=Jura:500,700" rel="stylesheet" />
 				</Head>
 				<Header home={ this.props.home } />
 				<main>

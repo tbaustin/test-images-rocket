@@ -21,6 +21,11 @@ export default class extends React.Component{
 			<Layout home={ true }>
 				<div>
 					{ productEls }
+					<style jsx>{`
+						div{
+							lost-utility: clearfix;
+						}
+					`}</style>
 				</div>
 			</Layout>
 		)
