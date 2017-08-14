@@ -78,17 +78,6 @@ export default class Layout extends React.Component {
 				</div>
 				<div className={ `loader ${this.state.loading ? 'loading' : ''}` } />
 				<style jsx>{`
-					.cont{
-						min-height: 100vh;
-						position: relative;
-						padding-bottom: 150px;
-					}
-					.footer{
-						position: absolute;
-						bottom: 0;
-						right: 0;
-						left: 0;
-					}
 					main{
 						max-width: 1200px;
 						padding: 30px;
@@ -129,6 +118,20 @@ export default class Layout extends React.Component {
 						}
 						to{
 							transform: translate(0%, 0);
+						}
+					}
+					@media(min-width: 800px){
+						/* Sticky footer */
+						.cont{
+							min-height: 100vh;
+							position: relative;
+							padding-bottom: 150px;
+						}
+						.footer{
+							position: absolute;
+							bottom: 0;
+							right: 0;
+							left: 0;
 						}
 					}
 				`}</style>

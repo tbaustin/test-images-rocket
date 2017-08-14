@@ -70,6 +70,15 @@ export default class extends React.Component {
 						&:first-of-type{
 							margin-bottom: 20px;
 						}
+						&:last-of-type{
+							& a{
+								display: block;
+								margin-bottom: 5px;
+								&:last-of-type{
+									margin-bottom: 0;
+								}
+							}
+						}
 					}
 					a{
 						color: #fff;
@@ -91,12 +100,18 @@ export default class extends React.Component {
 						z-index: -1;
 						user-select: none;
 					}
-					@media(min-width:1200px){
+					@media(min-width:800px){
 						div{
-							lost-column: 1/2;
-							text-align: left;
+							&:first-of-type{
+								text-align: left;
+								lost-column: 1/3;
+							}
 							&:last-of-type{
+								lost-column: 2/3;
 								text-align: right;
+								& a{
+									display: inline-block;
+								}
 							}
 						}
 					}

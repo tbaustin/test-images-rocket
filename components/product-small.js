@@ -12,6 +12,7 @@ export default class extends React.Component {
 			img = this.props.data['Web Images']
 		}
 		img = `/static/salsify/${img}-lg.jpg`
+
 		return(
 			<div className='outer'>
 				<Link prefetch href={{
