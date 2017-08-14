@@ -57,9 +57,8 @@ export default class extends React.Component {
 						padding: 3vh 0;
 						border-bottom: 1px solid #fff;
 						text-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
-						font-weight: 700;
-						letter-spacing: 0px;
-						font-size: 1.1em;
+						font-family: 'Teko';
+						font-size: 1.4em;
 						&:last-of-type{
 							border-bottom: 0;
 						}

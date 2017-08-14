@@ -10,7 +10,6 @@ export default class extends React.Component {
 					p{
 						line-height: ${styles.lineHeight};
 						font-size: ${styles.fontSize};
-						font-family: ${styles.mainFont};
 					}
 				`}</style>
 			</p>

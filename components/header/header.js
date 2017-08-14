@@ -83,6 +83,9 @@ export default class extends React.Component {
 						left: 0;
 						right: 0;
 						top: 8vh;
+						font-family: 'Teko';
+						letter-spacing: .3vw;
+						line-height: 4vw;
 						text-shadow: 3px 3px 10px rgba(0, 0, 0, .7);
 					}
 					@media(min-width:700px){

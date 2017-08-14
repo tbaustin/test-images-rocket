@@ -50,6 +50,12 @@ export default class extends React.Component {
 					<img src={ `/static/btn${this.props.data.order}.svg` } />
 				</div>
 				<style jsx>{`
+					h1{
+						font-family: 'Teko';
+						font-size: 2em;
+						margin-bottom: 0;
+						margin-top: 0;
+					}
 					.outer{
 						text-align: center;
 						margin-bottom: 30px;

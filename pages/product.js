@@ -88,6 +88,16 @@ export default class extends React.Component {
 						.qty{
 							max-width: 60px;
 						}
+						h1, h2{
+							font-family: 'Teko';
+							font-style: italic;
+							letter-spacing: 1px;
+							margin-top: 0;
+							margin-bottom: 0;
+						}
+						h1{
+							font-size: 3em;
+						}
 						.cartBtn{
 							cursor: pointer;
 							max-width: 80px;
