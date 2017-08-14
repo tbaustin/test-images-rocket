@@ -11,8 +11,9 @@ import settings from 'components/_global-settings'
 
 fastclick()
 
-
-// Loading bar
+function routerDone(){
+	this.setState({ loading: false })
+}
 
 export default class Layout extends React.Component {
 	constructor(props){
@@ -40,12 +41,8 @@ export default class Layout extends React.Component {
 		Router.onRouteChangeStart = url => {
 			this.setState({ loading: true })
 		}
-		Router.onRouteChangeComplete = routerDone
-		Router.onRouteChangeError = routerDone
-		const $this = this
-		function routerDone() {
-			$this.setState({ loading: false })
-		}
+		Router.onRouteChangeComplete = routerDone.bind(this)
+		Router.onRouteChangeError = routerDone.bind(this)
 	}
 	render(){
 		const delimeter = ' | '
@@ -126,7 +123,7 @@ export default class Layout extends React.Component {
 							animation: loading 3s linear infinite;
 						}
 					}
-					@keyframes loading {
+					@keyframes loading{
 						from{
 							transform: translate(-100%, 0);
 						}

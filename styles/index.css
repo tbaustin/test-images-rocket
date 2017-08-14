@@ -25,3 +25,7 @@ a{
 	text-decoration: none;
 	font-weight: bold;
 }
+::selection {
+	background-color: #333;
+	color: #fff;
+}

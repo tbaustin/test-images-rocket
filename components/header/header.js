@@ -28,7 +28,9 @@ export default class extends React.Component {
 						this.props.home ?
 						(
 							<div>
-								<img src='/static/splat.png' className='splat' />
+								<div className='splatCont'>
+									<img src='/static/splat.svg' className='splat' />
+								</div>
 								<h1>We make them lethal.<br />You drop them quick.</h1>
 							</div>
 						) :
@@ -64,6 +66,7 @@ export default class extends React.Component {
 						lost-utility: clearfix;
 						position: relative;
 						min-height: 70px;
+						user-select: none;
 					}
 					div{
 						@lost gutter 0;
@@ -75,11 +78,20 @@ export default class extends React.Component {
 						background: url('/static/home-bg.jpg') no-repeat bottom center;
 						background-size: cover;
 					}
-					.splat{
+					.splatCont{
 						position: absolute;
 						top: 0;
 						left: 0;
-						max-width: 35vw;
+						width: 35vw;
+						height: 35vw;
+						user-select: none;
+						transform: translate(-20%, -18%);
+						border-radius: 100%;
+						overflow: hidden;
+					}
+					.splat{
+						width: 100%;
+						height: 100%;
 					}
 					h1{
 						position: absolute;

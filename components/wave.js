@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import raf from 'raf'
+import settings from 'components/_global-settings'
 
 export default class extends React.Component {
 	constructor(props){
@@ -77,11 +78,12 @@ export default class extends React.Component {
 				<style jsx>{`
 					canvas{
 						width: 100%;
-						height: 40px;
+						height: ${settings.canvasHeight};
 						transform: scale(1, -1);
 						filter: FlipV;
 						position: relative;
 						z-index: -1;
+						user-select: none;
 					}
 				`}</style>
 			</div>

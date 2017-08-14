@@ -1,6 +1,6 @@
-import React from 'react';
-import settings from '../../styles/settings'
-import Link from 'next/link';
+import React from 'react'
+import settings from 'components/_global-settings'
+import Link from 'next/link'
 import ReactDOM from 'react-dom'
 import raf from 'raf'
 const year = new Date().getFullYear()
@@ -84,11 +84,12 @@ export default class extends React.Component {
 					}
 					canvas{
 						width: 100%;
-						height: 50px;
+						height: ${settings.canvasHeight};
 						filter: FlipV;
 						position: relative;
 						display: block;
 						z-index: -1;
+						user-select: none;
 					}
 					@media(min-width:1200px){
 						div{
