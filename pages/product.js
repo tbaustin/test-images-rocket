@@ -29,12 +29,12 @@ export default class extends React.Component {
 		this.qtyChange = this.qtyChange.bind(this)
 	}
 	qtyChange(e){
+		console.log(e.target.value)
 		this.setState({
 			qty: e.target.value
 		})
 	}
 	static async getInitialProps(req){
-		console.log('Get Initial Props')
 		const props = getProduct(req.query.product)
 		return props
 	}
@@ -44,7 +44,6 @@ export default class extends React.Component {
 		})
 	}
 	render(){
-
 		return(
 			<Layout>
 				<div className='cont'>
@@ -62,7 +61,9 @@ export default class extends React.Component {
 							<NumberInput
 								min='1'
 								labelStyle={{ marginBottom: 0 }}
-								handleChange={ this.props.qtyChange }
+								handleChange={ this.qtyChange }
+								handleBlur={ this.qtyChange }
+								defaultValue='1'
 								/>
 						</div>
 						<div
@@ -72,7 +73,7 @@ export default class extends React.Component {
 							data-img={ `/static/salsify/${this.props['Web Images'][0]}-lg.jpg` }
 							data-name={ this.props.title }
 							data-open-cart
-							data-qty={ this.props.qty }
+							data-qty={ this.state.qty || '1' }
 							>
 							<img src={ `/static/btn${this.props.order}.svg` } />
 						</div>
@@ -89,9 +90,9 @@ export default class extends React.Component {
 						}
 						.cartBtn{
 							cursor: pointer;
-							& img{
-								max-width: 80px;
-							}
+							max-width: 80px;
+							max-height: 80px;
+							margin-top: 10px;
 						}
 						@media(min-width:1000px){
 							section:first-of-type{

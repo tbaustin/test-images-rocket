@@ -29,6 +29,7 @@ export default class extends React.Component{
 					defaultValue={ this.props.defaultValue || '1' }
 					onBlur={ this.handleBlur }
 					onChange={ this.props.handleChange }
+					onClick={ this.props.handleClick }
 					required={ this.props.required ? 'required' : '' }
 					name={ this.props.name }
 					placeholder={ this.props.placeholder }

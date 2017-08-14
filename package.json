@@ -67,14 +67,14 @@
     "postcss-loader": "^2.0.6",
     "privacy-policy": "escaladesports/privacy-policy#v1.0.3",
     "product-to-json": "escaladesports/product-to-json#v0.1.0",
-    "query-product": "escaladesports/query-product#v1.0.2",
+    "query-product": "escaladesports/query-product#v1.0.3",
     "raf": "^3.3.2",
     "raw-loader": "^0.5.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-fastclick": "^3.0.2",
     "react-ga": "^2.2.0",
-    "reviews-to-json": "escaladesports/reviews-to-json.git#1.1.2",
+    "reviews-to-json": "escaladesports/reviews-to-json.git#1.2.0",
     "salsify-image-downloader": "escaladesports/salsify-image-downloader#v2.0.6",
     "salsify-to-json": "escaladesports/salsify-to-json#v2.0.4",
     "sass-loader": "^6.0.6",
@@ -82,7 +82,7 @@
     "sitemap": "^1.13.0",
     "styled-jsx-postcss": "^0.2.0",
     "terms-of-service": "escaladesports/terms-of-service#v1.0.4",
-    "usd-formatter": "^0.1.2"
+    "usd-formatter": "^0.1.3"
   },
   "dependencies": {},
   "engines": {
