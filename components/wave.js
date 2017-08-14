@@ -15,7 +15,7 @@ export default class extends React.Component {
 	}
 	componentDidMount(){
 		const $this = this
-		let unit = 100
+		let unit = 50
 		let canvas, context, canvas2, context2,height, width, xAxis, yAxis
 		function init(){
 			canvas = ReactDOM.findDOMNode($this).querySelector('canvas')

@@ -10,5 +10,5 @@ module.exports = {
 	black: '#333',
 	white: '#fff',
 	red: '#860E1E',
-	canvasHeight: '90px'
+	canvasHeight: '100px'
 }
