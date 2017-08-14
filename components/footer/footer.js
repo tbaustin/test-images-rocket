@@ -55,7 +55,6 @@ export default class extends React.Component {
 						font-style: italic;
 						text-transform: uppercase;
 						font-size: .9em;
-						width: 100%;
 					}
 					.inner{
 						background-color: ${settings.red};

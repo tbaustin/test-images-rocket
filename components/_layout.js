@@ -17,7 +17,7 @@ export default class Layout extends React.Component {
 			window.GA_INITIALIZED = true
 		}
 		logPageView()
-		
+
 		// Zygote
 		if('zygote' in window){
 			zygote.findButtons()
@@ -40,7 +40,7 @@ export default class Layout extends React.Component {
 			title = siteName
 		}
 		return (
-			<div>
+			<div className='cont'>
 				<Head>
 					<title>{ title }</title>
 					<meta charSet='utf-8' />
@@ -53,8 +53,21 @@ export default class Layout extends React.Component {
 				<main>
 					{ this.props.children }
 				</main>
-				<Footer />
+				<div className='footer'>
+					<Footer />
+				</div>
 				<style jsx>{`
+					.cont{
+						min-height: 100vh;
+						position: relative;
+						padding-bottom: 150px;
+					}
+					.footer{
+						position: absolute;
+						bottom: 0;
+						right: 0;
+						left: 0;
+					}
 					main{
 						max-width: 1200px;
 						padding: 30px;
