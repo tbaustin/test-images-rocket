@@ -1,15 +1,40 @@
 import React from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
 import { initGA, logPageView } from 'utils/analytics'
 import pkg from '../package.json'
 import style from '../styles/index.css'
 import fastclick from 'react-fastclick'
 import Header from 'components/header/header'
 import Footer from 'components/footer/footer'
+import settings from 'components/_global-settings'
 
 fastclick()
 
+
+// Loading bar
+
 export default class Layout extends React.Component {
+	constructor(props){
+		super(props)
+		console.log('constructor')
+		this.state = {
+			loading: false
+		}
+
+
+		Router.onRouteChangeStart = url => {
+			console.log('Route changing...')
+			this.setState({ loading: true })
+		}
+		Router.onRouteChangeComplete = routerDone
+		Router.onRouteChangeError = routerDone
+		const $this = this
+		function routerDone() {
+			console.log('Route complete.')
+			$this.setState({ loading: false })
+		}
+	}
 	componentDidMount(){
 		// Google Analytics
 		if(!window.GA_INITIALIZED){
@@ -57,6 +82,7 @@ export default class Layout extends React.Component {
 				<div className='footer'>
 					<Footer />
 				</div>
+				<div className={ `loader ${this.state.loading ? 'loading' : ''}` } />
 				<style jsx>{`
 					.cont{
 						min-height: 100vh;
@@ -73,6 +99,43 @@ export default class Layout extends React.Component {
 						max-width: 1200px;
 						padding: 30px;
 						margin: auto;
+					}
+					.loader{
+						box-sizing: border-box;
+						position: fixed;
+						top: 0;
+						right: 0;
+						left: 0;
+						z-index: 3;
+						height: 13px;
+						overflow: hidden;
+						background-color: #333;
+						display: none;
+						&:before{
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							width: 100%;
+							background-color: #d80000;
+							transform: translate(-100%, 0);
+							border-bottom: 1px solid #333;
+						}
+					}
+					.loading{
+						display: block;
+						&:before{
+							animation: loading 3s linear infinite;
+						}
+					}
+					@keyframes loading {
+						from{
+							transform: translate(-100%, 0);
+						}
+						to{
+							transform: translate(0%, 0);
+						}
 					}
 				`}</style>
 				<script src='https://zygote.netlify.com/zygote-v1.js'></script>

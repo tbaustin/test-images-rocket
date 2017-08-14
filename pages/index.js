@@ -13,9 +13,6 @@ const productEls = queryProduct({})
 	})
 
 export default class extends React.Component{
-	shouldComponentUpdate(nextProps, nextState){
-		return false
-	}
 	render(){
 		return(
 			<Layout home={ true }>

@@ -29,7 +29,6 @@ export default class extends React.Component {
 		this.qtyChange = this.qtyChange.bind(this)
 	}
 	qtyChange(e){
-		console.log(e.target.value)
 		this.setState({
 			qty: e.target.value
 		})
