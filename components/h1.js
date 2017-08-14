@@ -8,7 +8,10 @@ export default class extends React.Component {
 				{ this.props.children }
 				<style jsx>{`
 					h1{
-						font-size: 1.6em;
+						font-size: 3em;
+						margin-top: 0;
+						margin-bottom: 20px;
+						font-family: 'Teko';
 					}
 				`}</style>
 			</h1>
