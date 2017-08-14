@@ -42,7 +42,7 @@ export default class extends React.Component {
 							<Hamburger onClick={ this.toggleNav } home={ this.props.home } />
 						</div>
 						<div>
-							<Logo />
+							<Logo home={ this.props.home } />
 						</div>
 						{
 							process.env.DISABLE_ECOMMERCE ?
