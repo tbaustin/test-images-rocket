@@ -43,7 +43,7 @@ export default class extends React.Component {
 			qty: 1
 		})
 	}
-	render(){
+	render() {
 		return(
 			<Layout>
 				<div className='cont'>
@@ -57,26 +57,35 @@ export default class extends React.Component {
 						<div className='info'>
 							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
 						</div>
-						<div className='qty'>
-							<NumberInput
-								min='1'
-								labelStyle={{ marginBottom: 0 }}
-								handleChange={ this.qtyChange }
-								handleBlur={ this.qtyChange }
-								defaultValue='1'
-								/>
-						</div>
-						<div
-							className='cartBtn'
-							data-id={ this.props.id }
-							data-price={ this.props.price }
-							data-img={ `/static/salsify/${this.props['Web Images'][0]}-lg.jpg` }
-							data-name={ this.props.title }
-							data-open-cart
-							data-qty={ this.state.qty || '1' }
-							>
-							<img src={ `/static/btn${this.props.order}.svg` } />
-						</div>
+
+						{
+							process.env.DISABLE_ECOMMERCE ?
+								'' :
+								(
+									<div>
+										<div className='qty'>
+											<NumberInput
+												min='1'
+												labelStyle={{ marginBottom: 0 }}
+												handleChange={this.qtyChange}
+												handleBlur={this.qtyChange}
+												defaultValue='1'
+											/>
+										</div>
+										<div
+											className='cartBtn'
+											data-id={this.props.id}
+											data-price={this.props.price}
+											data-img={`/static/salsify/${this.props['Web Images'][0]}-lg.jpg`}
+											data-name={this.props.title}
+											data-open-cart
+											data-qty={this.state.qty || '1'}
+										>
+											<img src={`/static/btn${this.props.order}.svg`} />
+										</div>
+									</div>
+								)
+						}
 					</section>
 					<style jsx>{`
 						.cont{

@@ -14,7 +14,7 @@ export default class extends React.Component {
 	}
 	render(){
 		return (
-			<nav className={ this.props.showing ? 'showing' : '' } onClick={ this.onClick }>
+			<nav className={ `${this.props.showing ? 'showing' : ''} ${this.props.home ? 'home' : ''}` } onClick={ this.onClick }>
 				<section>
 					<Link prefetch href='/product?product=as1303b' as='/product/as1303b'>
 						<a>Steelhead&reg;</a>
@@ -70,9 +70,12 @@ export default class extends React.Component {
 						display: block;
 					}
 					@media(min-width: ${settings.navBreakpoint}px){
+						.home{
+							right: 100px;
+						}
 						nav{
 							position: absolute;
-							right: 100px;
+							right: ${process.env.DISABLE_ECOMMERCE ? '0' : '100px !important'};
 							top: 50%;
 							transform: translate(0, -50%);
 							bottom: auto;

@@ -39,16 +39,22 @@ export default class extends React.Component {
 				<div className='cut'>{ this.props.data.cut }" Cut { this.props.data.grain } Grain)</div>
 				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
 				<div className='qty'>(QTY { this.props.data.qty })</div>
-				<div
-					className='cartBtn'
-					data-id={ this.props.data.id }
-					data-price={ this.props.data.price }
-					data-img={ img }
-					data-name={ this.props.data.title }
-					data-open-cart
-					>
-					<img src={ `/static/btn${this.props.data.order}.svg` } />
-				</div>
+				{
+					process.env.DISABLE_ECOMMERCE ?
+						'' :
+						(
+							<div
+								className='cartBtn'
+								data-id={this.props.data.id}
+								data-price={this.props.data.price}
+								data-img={img}
+								data-name={this.props.data.title}
+								data-open-cart
+							>
+								<img src={`/static/btn${this.props.data.order}.svg`} />
+							</div>
+						)
+				}
 				<style jsx>{`
 					h1{
 						font-family: 'Teko';

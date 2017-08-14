@@ -21,6 +21,7 @@ export default class extends React.Component {
 		})
 	}
 	render(){
+		console.log('DISABLE_ECOMMERCE', process.env.DISABLE_ECOMMERCE)
 		return (
 			<section className='wrapper'>
 				<section className={ `bar ${this.props.home ? 'home' : ''}` }>
@@ -35,16 +36,22 @@ export default class extends React.Component {
 						''
 					}
 					<header>
-						<Nav showing={ this.state.showing } onClick={ this.toggleNav } />
+						<Nav showing={ this.state.showing } home={ this.props.home } onClick={ this.toggleNav } />
 						<div className='ham'>
 							<Hamburger onClick={ this.toggleNav } home={ this.props.home } />
 						</div>
 						<div>
 							<Logo />
 						</div>
-						<div>
-							<Cart />
-						</div>
+						{
+							process.env.DISABLE_ECOMMERCE ?
+								'' :
+								(
+									<div>
+										<Cart />
+									</div>
+								)
+						}
 					</header>
 				</section>
 				<Wave />
