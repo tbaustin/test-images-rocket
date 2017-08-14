@@ -2,13 +2,19 @@ import React from 'react'
 import Loader from 'components/loader'
 
 function getUrl(id, suffix){
-	return `/static/salsify/${id}-${suffix}.jpg`
+	return `/static/product/${id}-${suffix}.jpg`
 }
 
 function subImg(id, onClick, stopBubbling){
 	return (
 		<a href={ getUrl(id, 'lg') } key={ id } onClick={ onClick }>
 			<img src={ getUrl(id, 'tn') } key={ id } />
+			<style jsx>{`
+				img{
+					display: inline-block;
+					margin: 0 5px;
+				}
+			`}</style>
 		</a>
 	)
 }
@@ -78,9 +84,19 @@ export default class extends React.Component {
 							display: none;
 						}
 					}
+					.sub{
+						text-align: center;
+						margin-bottom: 20px;
+					}
 					img{
 						max-width: 100%;
 						max-height: 300px;
+					}
+					@media(min-width:500px){
+						.main{
+							height: 300px;
+							overflow: hidden;
+						}
 					}
 				`}</style>
 			</section>

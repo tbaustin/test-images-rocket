@@ -5,6 +5,10 @@ grain: 100
 price: 12.50
 qty: 3
 order: 2
+images:
+  - ar100sw-1
+  - ar100sw-2
+  - ar100sw-3
 ---
 
 ### A large-cutting, deep-penetrating killing machine.

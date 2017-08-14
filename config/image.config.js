@@ -14,5 +14,19 @@ module.exports = {
 				return img.resize(800)
 			}
 		}
+	],
+	'product/*': [
+		{
+			suffix: '-tn',
+			process: img => {
+				return img.resize(100, 100)
+			}
+		},
+		{
+			suffix: '-lg',
+			process: img => {
+				return img.resize(800)
+			}
+		}
 	]
 }

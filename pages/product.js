@@ -47,7 +47,7 @@ export default class extends React.Component {
 			<Layout>
 				<div className='cont'>
 					<section>
-						<ProductImages images={ this.props['Web Images'] } />
+						<ProductImages images={ this.props.images } />
 					</section>
 					<section>
 						<h1>{ this.props.title }</h1>
@@ -75,7 +75,7 @@ export default class extends React.Component {
 											className='cartBtn'
 											data-id={this.props.id}
 											data-price={this.props.price}
-											data-img={`/static/salsify/${this.props['Web Images'][0]}-lg.jpg`}
+											data-img={`/static/salsify/${this.props.images[0]}-lg.jpg`}
 											data-name={this.props.title}
 											data-open-cart
 											data-qty={this.state.qty || '1'}

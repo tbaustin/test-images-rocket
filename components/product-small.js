@@ -5,13 +5,13 @@ import usdFormatter from 'usd-formatter'
 export default class extends React.Component {
 	render() {
 		let img
-		if(typeof this.props.data['Web Images'] === 'object'){
-			img = this.props.data['Web Images'][0]
+		if(typeof this.props.data.images === 'object'){
+			img = this.props.data.images[0]
 		}
 		else{
-			img = this.props.data['Web Images']
+			img = this.props.data.images
 		}
-		img = `/static/salsify/${img}-lg.jpg`
+		img = `/static/product/${img}-lg.jpg`
 
 		return(
 			<div className='outer'>
@@ -46,10 +46,10 @@ export default class extends React.Component {
 						(
 							<div
 								className='cartBtn'
-								data-id={this.props.data.id}
-								data-price={this.props.data.price}
-								data-img={img}
-								data-name={this.props.data.title}
+								data-id={ this.props.data.id }
+								data-price={ this.props.data.price }
+								data-img={ img }
+								data-name={ this.props.data.title }
 								data-open-cart
 							>
 								<img src={`/static/btn${this.props.data.order}.svg`} />
@@ -69,6 +69,7 @@ export default class extends React.Component {
 					}
 					.mainImg{
 						max-height: 150px;
+						margin-bottom: 10px;
 					}
 					.cartBtn{
 						cursor: pointer;

@@ -18,14 +18,15 @@ html, body{
 h1{
 	color: #860e1b;
 	text-transform: uppercase;
-	font-size: 1.3em;
+	font-size: 3em;
+	font-family: 'Teko';
 }
 a{
 	color: #860e1b;
 	text-decoration: none;
 	font-weight: bold;
 }
-::selection {
+::selection{
 	background-color: #333;
 	color: #fff;
 }

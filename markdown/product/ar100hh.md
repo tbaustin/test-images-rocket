@@ -5,6 +5,10 @@ grain: 100
 price: 12.50
 qty: 3
 order: 4
+images:
+  - ar100hh-1
+  - ar100hh-2
+  - ar100hh-3
 ---
 
 ### Leaves an enormous entry and wound and turns tracking into a thing of the past.

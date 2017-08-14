@@ -5,6 +5,9 @@ grain: 100
 price: 12.50
 qty: 3
 order: 3
+images:
+  - ar100us-1
+  - ar100us-2
 ---
 
 ### Developed to remain stable during the high-speed forces.
