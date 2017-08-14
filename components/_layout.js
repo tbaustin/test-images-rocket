@@ -17,22 +17,8 @@ fastclick()
 export default class Layout extends React.Component {
 	constructor(props){
 		super(props)
-		console.log('constructor')
 		this.state = {
 			loading: false
-		}
-
-
-		Router.onRouteChangeStart = url => {
-			console.log('Route changing...')
-			this.setState({ loading: true })
-		}
-		Router.onRouteChangeComplete = routerDone
-		Router.onRouteChangeError = routerDone
-		const $this = this
-		function routerDone() {
-			console.log('Route complete.')
-			$this.setState({ loading: false })
 		}
 	}
 	componentDidMount(){
@@ -48,6 +34,17 @@ export default class Layout extends React.Component {
 			zygote.findButtons()
 			zygote.findQty()
 			zygote.findIcons()
+		}
+
+		// Progress bar
+		Router.onRouteChangeStart = url => {
+			this.setState({ loading: true })
+		}
+		Router.onRouteChangeComplete = routerDone
+		Router.onRouteChangeError = routerDone
+		const $this = this
+		function routerDone() {
+			$this.setState({ loading: false })
 		}
 	}
 	render(){
