@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import settings from './_global-settings'
 import raf from 'raf'
 
-const transThreshold = 30
+const transThreshold = 10
 const colorThreshold = 50
 
 function createVideo(){
@@ -28,6 +28,9 @@ export default class extends React.Component {
 		this.setState({
 			playing: true
 		})
+		setTimeout(() => {
+			this.canvas.className = 'active'
+		}, 100)
 		this.video = createVideo()
 		this.canvas.width = 1280
 		this.canvas.height = 720
@@ -88,6 +91,11 @@ export default class extends React.Component {
 					canvas{
 						width: 1280px;
 						height: 720px;
+						opacity: 0;
+						transition: opacity .5s;
+						&.active{
+							opacity: 1;
+						}
 					}
 				`}</style>
 			</div>

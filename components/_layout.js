@@ -82,6 +82,7 @@ export default class Layout extends React.Component {
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 					<meta content={ this.props.description ? this.props.description : pkg.description } name='description' />
 					<style>{ style }</style>
+					<link rel='icon' type='image/png' href='/static/favicon.png' />
 					<link type='text/css' rel='stylesheet' href='https://zygote.netlify.com/zygote-v1.css' />
 					<link href="https://fonts.googleapis.com/css?family=Jura:400,700|Teko" rel="stylesheet" />
 				</Head>
