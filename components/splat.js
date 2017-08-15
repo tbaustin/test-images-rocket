@@ -5,6 +5,7 @@ import raf from 'raf'
 
 const transThreshold = 10
 const colorThreshold = 50
+const lightThreshold = 60
 
 function createVideo(){
 	const video = document.createElement('video')
@@ -73,6 +74,14 @@ export default class extends React.Component {
 				avg = (data[i] + data[i + 1] + data[i + 2]) / 2
 				img.data[i + 3] = avg * 3
 			}
+			else if (
+				data[i] >= lightThreshold &&
+				data[i + 1] >= lightThreshold &&
+				data[i + 2] >= lightThreshold
+			){
+				img.data[i] = 255
+				img.data[i + 3] = 100
+			}
 		}
 		this.ctx.putImageData(img, 0, 0)
 		raf(this.tick)
@@ -86,7 +95,6 @@ export default class extends React.Component {
 						position: absolute;
 						left: -190px;
 						top: -150px;
-						filter: brightness(130%);
 					}
 					canvas{
 						width: 1280px;
