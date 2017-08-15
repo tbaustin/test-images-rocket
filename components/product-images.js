@@ -31,9 +31,8 @@ export default class extends React.Component {
 		this.imgLoad = this.imgLoad.bind(this)
 	}
 	onClick(e){
-		this.setState({
-			loading: true
-		})
+		clearTimeout(this.timeout)
+		this.timeout = setTimeout(this.showLoader.bind(this), 100)
 		e.preventDefault()
 		let target = e.target
 		if(target.tagName === 'IMG'){
@@ -41,7 +40,13 @@ export default class extends React.Component {
 		}
 		this.main.src = target.href
 	}
+	showLoader() {
+		this.setState({
+			loading: true
+		})
+	}
 	imgLoad(){
+		clearTimeout(this.timeout)
 		this.setState({
 			loading: false
 		})

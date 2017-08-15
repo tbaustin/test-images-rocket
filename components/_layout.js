@@ -11,9 +11,6 @@ import settings from 'components/_global-settings'
 
 fastclick()
 
-function routerDone(){
-	this.setState({ loading: false })
-}
 
 export default class Layout extends React.Component {
 	constructor(props){
@@ -21,6 +18,18 @@ export default class Layout extends React.Component {
 		this.state = {
 			loading: false
 		}
+		this.showLoader = this.showLoader.bind(this)
+		this.routerDone = this.routerDone.bind(this)
+	}
+	componentWillMount() {
+		// Progress bar
+		clearTimeout(this.timeout)
+		Router.onRouteChangeStart = url => {
+			clearTimeout(this.timeout)
+			this.timeout = setTimeout(this.showLoader.bind(this), 100)
+		}
+		Router.onRouteChangeComplete = this.routerDone
+		Router.onRouteChangeError = this.routerDone
 	}
 	componentDidMount(){
 		// Google Analytics
@@ -38,11 +47,18 @@ export default class Layout extends React.Component {
 		}
 
 		// Progress bar
-		Router.onRouteChangeStart = url => {
-			this.setState({ loading: true })
-		}
-		Router.onRouteChangeComplete = routerDone.bind(this)
-		Router.onRouteChangeError = routerDone.bind(this)
+		clearTimeout(this.timeout)
+	}
+	componentWillUnmount() {
+		clearTimeout(this.timeout)
+	}
+	showLoader(){
+		clearTimeout(this.timeout)
+		this.setState({ loading: true })
+	}
+	routerDone(){
+		clearTimeout(this.timeout)
+		this.setState({ loading: false })
 	}
 	render(){
 		const delimeter = ' | '
