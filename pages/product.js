@@ -60,11 +60,11 @@ export default class extends React.Component {
 							process.env.DISABLE_ECOMMERCE ?
 								'' :
 								(
-									<div>
+									<div className='ecomm'>
 										<div className='qty'>
 											<NumberInput
 												min='1'
-												labelStyle={{ marginBottom: 0 }}
+												labelStyle={{ marginBottom: 0, display: 'inline-block' }}
 												handleChange={this.qtyChange}
 												handleBlur={this.qtyChange}
 												defaultValue='1'
@@ -109,6 +109,12 @@ export default class extends React.Component {
 							max-width: 80px;
 							max-height: 80px;
 							margin-top: 10px;
+							display: inline-block;
+							width: 80px;
+							height: 80px;
+						}
+						.ecomm{
+							text-align: center;
 						}
 						@media(min-width:1000px){
 							section:first-of-type{
@@ -117,6 +123,15 @@ export default class extends React.Component {
 							section:last-of-type{
 								padding-left: 30px;
 								lost-column: 2/3;
+							}
+							.ecomm{
+								lost-utility: clearfix;
+								& > div{
+									float: left;
+									&:first-of-type{
+										margin-right: 15px;
+									}
+								}
 							}
 						}
 					`}</style>
