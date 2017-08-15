@@ -15,11 +15,24 @@ export default class extends React.Component {
 			showing: false
 		}
 		this.toggleNav = this.toggleNav.bind(this)
+		this.hideNav = this.hideNav.bind(this)
 	}
 	toggleNav(){
 		this.setState({
 			showing: !this.state.showing
 		})
+	}
+	hideNav(){
+		console.log('hiding!')
+		this.setState({
+			showing: false
+		})
+	}
+	componentDidMount() {
+		window.addEventListener('resize', this.hideNav)
+	}
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.hideNav)
 	}
 	render(){
 		return (
@@ -57,6 +70,15 @@ export default class extends React.Component {
 					</header>
 				</section>
 				<Wave />
+				{
+					this.state.showing ?
+						<style>{`
+						body{
+							overflow: hidden;
+						}
+					`}</style>
+						: ''
+				}
 				<style jsx>{`
 					.bar{
 						background: url('/static/header-bg.jpg') no-repeat center center;
