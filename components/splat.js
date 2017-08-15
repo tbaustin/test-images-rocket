@@ -44,6 +44,7 @@ export default class extends React.Component {
 		})
 	}
 	tick() {
+		if(!this.canvas || !this.tempCanvas) return
 		this.canvas.width = this.canvas.width
 		// Delete!
 		this.tempCanvas.width = this.tempCanvas.width
