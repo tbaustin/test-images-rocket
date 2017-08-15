@@ -81,9 +81,6 @@ export default class extends React.Component {
 						background-size: cover;
 					}
 					.splatCont{
-						position: absolute;
-						top: -6vw;
-						left: -7vw;
 						user-select: none;
 					}
 					h1{

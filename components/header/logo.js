@@ -42,7 +42,7 @@ export default class extends React.Component {
 						.home{
 							&:hover{
 								& .cls-1{
-									fill: #333;
+									fill: #fff;
 								}
 							}
 						}
