@@ -28,9 +28,9 @@ export default class extends React.Component {
 		}
 		this.qtyChange = this.qtyChange.bind(this)
 	}
-	qtyChange(e){
+	qtyChange(val){
 		this.setState({
-			qty: e.target.value
+			qty: val
 		})
 	}
 	static async getInitialProps(req){
@@ -56,7 +56,6 @@ export default class extends React.Component {
 						<div className='info'>
 							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
 						</div>
-
 						{
 							process.env.DISABLE_ECOMMERCE ?
 								'' :
@@ -69,6 +68,8 @@ export default class extends React.Component {
 												handleChange={this.qtyChange}
 												handleBlur={this.qtyChange}
 												defaultValue='1'
+												decrementClick={ this.decrement }
+												incrementClick={ this.increment }
 											/>
 										</div>
 										<div
@@ -92,9 +93,6 @@ export default class extends React.Component {
 						}
 						img{
 							max-width: 100%;
-						}
-						.qty{
-							max-width: 60px;
 						}
 						h1, h2{
 							font-family: 'Teko';

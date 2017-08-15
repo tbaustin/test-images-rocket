@@ -10,9 +10,11 @@ function subImg(id, onClick, stopBubbling){
 		<a href={ getUrl(id, 'lg') } key={ id } onClick={ onClick }>
 			<img src={ getUrl(id, 'tn') } key={ id } />
 			<style jsx>{`
+				a{
+					lost-waffle: 1/3;
+				}
 				img{
-					display: inline-block;
-					margin: 0 5px;
+					max-width: 100%;
 				}
 			`}</style>
 		</a>
@@ -87,6 +89,7 @@ export default class extends React.Component {
 					.sub{
 						text-align: center;
 						margin-bottom: 20px;
+						lost-utility: clearfix;
 					}
 					img{
 						max-width: 100%;
