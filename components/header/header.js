@@ -5,6 +5,7 @@ import Cart from 'components/header/cart'
 import Hamburger from 'components/header/hamburger'
 import Wave from 'components/wave'
 import Nav from 'components/header/nav'
+import Splat from 'components/splat'
 import settings from '../../styles/settings'
 
 export default class extends React.Component {
@@ -29,7 +30,7 @@ export default class extends React.Component {
 						(
 							<div>
 								<div className='splatCont'>
-									<img src='/static/splat.svg' className='splat' />
+									<Splat />
 								</div>
 								<h1>We make them lethal.<br />You drop them quick.</h1>
 							</div>
@@ -61,6 +62,7 @@ export default class extends React.Component {
 						background: url('/static/header-bg.jpg') no-repeat center center;
 						background-size: cover;
 						width: 100%;
+						overflow: hidden;
 					}
 					header{
 						lost-utility: clearfix;
@@ -80,18 +82,9 @@ export default class extends React.Component {
 					}
 					.splatCont{
 						position: absolute;
-						top: 0;
-						left: 0;
-						width: 35vw;
-						height: 35vw;
+						top: -6vw;
+						left: -7vw;
 						user-select: none;
-						transform: translate(-20%, -18%);
-						border-radius: 100%;
-						overflow: hidden;
-					}
-					.splat{
-						width: 100%;
-						height: 100%;
 					}
 					h1{
 						position: absolute;
