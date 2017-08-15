@@ -49,6 +49,7 @@ export default class extends React.Component {
 							&:hover{
 								& .cls-1{
 									fill: #fff;
+									opacity: .8;
 								}
 							}
 						}

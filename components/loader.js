@@ -1,4 +1,5 @@
 import React from 'react'
+import settings from 'components/_global-settings'
 
 export default class extends React.Component {
 	render(){
@@ -15,7 +16,7 @@ export default class extends React.Component {
 						& > div{
 							width: 18px;
 							height: 18px;
-							background-color: #666;
+							background-color: ${settings.red};
 							border-radius: 100%;
 							display: inline-block;
 							margin-right: 7px;

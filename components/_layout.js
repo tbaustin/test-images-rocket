@@ -118,7 +118,7 @@ export default class Layout extends React.Component {
 							left: 0;
 							bottom: 0;
 							width: 100%;
-							background-color: #d80000;
+							background-color: #c31129;
 							transform: translate(-100%, 0);
 							border-bottom: 1px solid #333;
 						}
