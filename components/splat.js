@@ -93,16 +93,22 @@ export default class extends React.Component {
 				<style jsx>{`
 					div{
 						position: absolute;
-						left: -190px;
-						top: -150px;
+						left: -180px;
+						top: -220px;
+						display: none;
 					}
 					canvas{
-						width: 1280px;
-						height: 720px;
+						width: 1380px;
+						height: 1020px;
 						opacity: 0;
 						transition: opacity .5s;
 						&.active{
 							opacity: 1;
+						}
+					}
+					@media(min-width: 1024px){
+						div{
+							display: block;
 						}
 					}
 				`}</style>
