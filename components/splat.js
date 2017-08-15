@@ -28,8 +28,8 @@ export default class extends React.Component {
 						width: 45vw;
 						height: 45vw;
 						overflow: hidden;
-						transform: scale(0) rotate(-30deg);
-						transform-origin: 0 0;
+						transform: scale(0);
+						transform-origin: 0% 50%;
 						opacity: 0;
 						transition: transform .24s linear, opacity .24s linear;
 						margin-top: -100px;
@@ -41,7 +41,7 @@ export default class extends React.Component {
 						transition: transform .24s linear;
 					}
 					.active{
-						transform: scale(1) rotate(0deg);
+						transform: scale(1);
 						opacity: 1;
 						& svg{
 							transform: scale(1);
