@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import settings from './_global-settings'
 import raf from 'raf'
 
-const colorThreshold = 20
+const transThreshold = 30
+const colorThreshold = 50
 
 function createVideo(){
 	const video = document.createElement('video')
@@ -55,11 +56,19 @@ export default class extends React.Component {
 		let avg
 		for (i = 0; i < data.length; i += 4){
 			if (
+				data[i] <= transThreshold &&
+				data[i + 1] <= transThreshold &&
+				data[i + 2] <= transThreshold
+			) {
+				img.data[i + 3] = 0
+			}
+			else if (
 				data[i] <= colorThreshold &&
-				data[i+1] <= colorThreshold &&
-				data[i+2] <= colorThreshold
+				data[i + 1] <= colorThreshold &&
+				data[i + 2] <= colorThreshold
 			){
-				img.data[i + 3] = data[i + 2] / 255
+				avg = (data[i] + data[i + 1] + data[i + 2]) / 2
+				img.data[i + 3] = avg * 3
 			}
 		}
 		this.ctx.putImageData(img, 0, 0)
@@ -74,6 +83,7 @@ export default class extends React.Component {
 						position: absolute;
 						left: -190px;
 						top: -150px;
+						filter: brightness(130%);
 					}
 					canvas{
 						width: 1280px;
