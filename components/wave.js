@@ -74,7 +74,7 @@ export default class extends React.Component {
 	render() {
 		return (
 			<div>
-				<canvas></canvas>
+				<canvas className='wave'></canvas>
 				<style jsx>{`
 					canvas{
 						width: 100%;

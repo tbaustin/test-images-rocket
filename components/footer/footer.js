@@ -16,7 +16,7 @@ export default class extends React.Component {
 		return false
 	}
 	componentDidMount(){
-		const upperCanvas = document.querySelector('canvas')
+		const upperCanvas = document.querySelector('canvas.wave')
 		const lowerCanvas = ReactDOM.findDOMNode(this).querySelector('canvas')
 		const context = lowerCanvas.getContext('2d')
 		lowerCanvas.width = document.documentElement.clientWidth
