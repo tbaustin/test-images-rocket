@@ -8,9 +8,7 @@ export default class extends React.Component {
 		this.onClick = this.onClick.bind(this)
 	}
 	onClick(e){
-		if(e.target.tagName !== 'A'){
-			this.props.onClick()
-		}
+		this.props.onClick()
 	}
 	render(){
 		return (
