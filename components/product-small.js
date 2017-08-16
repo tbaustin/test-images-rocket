@@ -42,7 +42,7 @@ export default class extends React.Component {
 				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
 				<div className='qty'>(QTY { this.props.data.qty })</div>
 				{
-					process.env.DISABLE_ECOMMERCE ?
+					(process.env.DISABLE_ECOMMERCE) ?
 						'' :
 						(
 							<div
