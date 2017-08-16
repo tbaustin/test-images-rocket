@@ -42,6 +42,7 @@ export default class extends React.Component {
 			qty: 1
 		})
 	}
+
 	render() {
 		const description = `${this.props.cut}" Cut (${this.props.grain} grain)`
 		return(
