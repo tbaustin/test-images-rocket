@@ -13,6 +13,7 @@ export default class extends React.Component {
 		}
 		img = `/static/product/${img}-lg.jpg`
 
+		const description = `${this.props.data.cut}" Cut (${this.props.data.grain} grain)`
 		return(
 			<div className='outer'>
 				<Link prefetch href={{
@@ -37,7 +38,7 @@ export default class extends React.Component {
 						<a>{ this.props.data.title }</a>
 					</Link>
 				</h1>
-				<div className='cut'>{ this.props.data.cut }" Cut { this.props.data.grain } Grain)</div>
+				<div className='cut'>{ description }</div>
 				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
 				<div className='qty'>(QTY { this.props.data.qty })</div>
 				{
@@ -51,6 +52,7 @@ export default class extends React.Component {
 								data-img={ img }
 								data-name={ this.props.data.title }
 								data-open-cart
+								data-desc={ description }
 							>
 								<img src={`/static/btn${this.props.data.order}.svg`} />
 							</div>

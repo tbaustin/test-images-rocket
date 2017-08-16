@@ -43,6 +43,7 @@ export default class extends React.Component {
 		})
 	}
 	render() {
+		const description = `${this.props.cut}" Cut (${this.props.grain} grain)`
 		return(
 			<Layout>
 				<div className='cont'>
@@ -51,7 +52,7 @@ export default class extends React.Component {
 					</section>
 					<section>
 						<h1>{ this.props.title }</h1>
-						<h2>{ this.props.cut }" Cut ({ this.props.grain } grain)</h2>
+						<h2>{ description }</h2>
 						<div dangerouslySetInnerHTML={{ __html: this.props.contents }} />
 						<div className='info'>
 							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
@@ -74,12 +75,13 @@ export default class extends React.Component {
 										</div>
 										<div
 											className='cartBtn'
-											data-id={this.props.id}
-											data-price={this.props.price}
-											data-img={`/static/product/${this.props.images[0]}-lg.jpg`}
-											data-name={this.props.title}
+											data-id={ this.props.id }
+											data-price={ this.props.price }
+											data-img={ `/static/product/${this.props.images[0]}-lg.jpg` }
+											data-name={ this.props.title }
 											data-open-cart
-											data-qty={this.state.qty || '1'}
+											data-qty={ this.state.qty || '1' }
+											data-desc={ description }
 										>
 											<img src={`/static/btn${this.props.order}.svg`} />
 										</div>
