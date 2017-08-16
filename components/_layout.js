@@ -98,7 +98,7 @@ export default class Layout extends React.Component {
 					main{
 						max-width: 1200px;
 						padding: 30px;
-						margin: auto;
+						margin: 0 auto 30px 0;
 					}
 					.loader{
 						box-sizing: border-box;
