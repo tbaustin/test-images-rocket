@@ -99,7 +99,7 @@ export default class extends React.Component {
 					}
 					.home{
 						height: 50vh;
-						background: url('/static/home-bg.jpg') no-repeat bottom center;
+						background: url('/static/home-bg.jpg') no-repeat top center;
 						background-size: cover;
 					}
 					.splatCont{
