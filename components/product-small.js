@@ -21,7 +21,7 @@ export default class extends React.Component {
 						query: {
 							product: this.props.data.id
 						}
-					}} as={`/product/${this.props.data.id}`}>
+					}} as={ `/product/${this.props.data.id}` }>
 					<a>
 						<img src={ img } className='mainImg' />
 					</a>
