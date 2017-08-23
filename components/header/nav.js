@@ -57,6 +57,7 @@ export default class extends React.Component {
 						text-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
 						font-family: 'Teko';
 						font-size: 1.4em;
+						font-weight: 400;
 						&:last-of-type{
 							border-bottom: 0;
 						}

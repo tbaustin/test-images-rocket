@@ -61,9 +61,11 @@ export default class extends React.Component {
 				<style jsx>{`
 					h1{
 						font-family: 'Teko';
+						font-weight: 400;
 						font-size: 2em;
 						margin-bottom: 0;
 						margin-top: 0;
+						font-style: italic;
 					}
 					.outer{
 						text-align: center;

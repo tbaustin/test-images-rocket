@@ -45,7 +45,7 @@ export default class extends React.Component {
 								<div className='splatCont'>
 									<Splat />
 								</div>
-								<h1>We make them lethal.<br />You drop them quick.</h1>
+								<h1>We make 'em lethal.<br />You drop 'em quick.</h1>
 							</div>
 						) :
 						''
