@@ -99,7 +99,7 @@ export default class extends React.Component {
 					}
 					.home{
 						height: 50vh;
-						background: url('/static/home-bg.jpg') no-repeat top center;
+						background: url('/static/home-bg.jpg') no-repeat bottom left;
 						background-size: cover;
 					}
 					.splatCont{
@@ -108,17 +108,22 @@ export default class extends React.Component {
 					h1{
 						position: absolute;
 						z-index: 3;
-						font-size: 4vw;
 						text-align: center;
 						left: 0;
 						right: 0;
 						top: 8vh;
 						font-family: 'Teko';
 						letter-spacing: .3vw;
-						line-height: 4vw;
+						font-size: 10vw;
+						line-height: 10vw;
 						text-shadow: 3px 3px 10px rgba(0, 0, 0, .7);
 					}
 					@media(min-width:700px){
+						h1{
+							top: 10vh;
+							font-size: 4vw;
+							line-height: 5vw;
+						}
 						.home{
 							height: 50vh;
 						}

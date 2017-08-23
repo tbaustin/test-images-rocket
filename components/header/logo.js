@@ -38,6 +38,11 @@ export default class extends React.Component {
 					.cls-1{
 						fill:#fff;
 					}
+					.home{
+						margin-left: -20px;
+						margin-top: 10px;
+						width: 120px;
+					}
 					@media(min-width: ${settings.navBreakpoint}px){
 						svg{
 							max-height: 100px;
@@ -46,6 +51,9 @@ export default class extends React.Component {
 							transform: translate(0, -50%);
 						}
 						.home{
+							margin-left: 0;
+							margin-top: 30px;
+							width: auto;
 							&:hover{
 								& .cls-1{
 									fill: #fff;
