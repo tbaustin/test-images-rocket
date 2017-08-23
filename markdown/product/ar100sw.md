@@ -1,6 +1,6 @@
 ---
 title: Sidewinder®
-cut: 1 - <sup>1</sup>/<sub>2</sub>
+cut: 1 - 1/2
 grain: 100
 price: 24.99
 qty: 3
