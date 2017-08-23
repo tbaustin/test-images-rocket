@@ -38,7 +38,7 @@ export default class extends React.Component {
 						<a>{ this.props.data.title }</a>
 					</Link>
 				</h1>
-				<div className='cut'>{ description }</div>
+				<div className='cut' dangerouslySetInnerHTML={{ __html: description }} />
 				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
 				<div className='qty'>(QTY { this.props.data.qty })</div>
 				{
