@@ -39,11 +39,19 @@ export default class Layout extends React.Component {
 		}
 		logPageView()
 
+		console.log(window.zygote)
+
 		// Zygote
 		if('zygote' in window){
 			zygote.findButtons()
 			zygote.findQty()
 			zygote.findIcons()
+			// Zygote init
+			if (!zygote.api) {
+				console.log(process.env.ZYGOTE_API)
+				zygote.api = process.env.ZYGOTE_API
+				zygote.properties = { site: 'rocketbroadheads' }
+			}
 		}
 
 		// Progress bar

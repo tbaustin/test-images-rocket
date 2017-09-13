@@ -59,8 +59,7 @@ export default class extends React.Component {
 							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
 						</div>
 						{
-							process.env.DISABLE_ECOMMERCE ?
-								'' :
+							process.env.DISABLE_ECOMMERCE != 1 &&
 								(
 									<div className='ecomm'>
 										<div className='qty'>

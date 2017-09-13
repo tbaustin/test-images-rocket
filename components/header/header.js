@@ -59,8 +59,7 @@ export default class extends React.Component {
 							<Logo home={ this.props.home } />
 						</div>
 						{
-							(process.env.DISABLE_ECOMMERCE) ?
-								'' :
+							process.env.DISABLE_ECOMMERCE != 1 &&
 								(
 									<div>
 										<Cart />

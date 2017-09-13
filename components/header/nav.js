@@ -74,7 +74,7 @@ export default class extends React.Component {
 						}
 						nav{
 							position: absolute;
-							right: ${process.env.DISABLE_ECOMMERCE ? '30px' : '100px !important'};
+							right: 100px !important;
 							top: 50%;
 							transform: translate(0, -50%);
 							bottom: auto;
