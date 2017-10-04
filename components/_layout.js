@@ -33,11 +33,11 @@ export default class Layout extends React.Component {
 	}
 	componentDidMount(){
 		// Google Analytics
-		if(!window.GA_INITIALIZED){
+		if (!window.GA_INITIALIZED) {
 			initGA()
 			window.GA_INITIALIZED = true
+			logPageView()
 		}
-		logPageView()
 
 		console.log(window.zygote)
 
@@ -67,6 +67,7 @@ export default class Layout extends React.Component {
 	routerDone(){
 		clearTimeout(this.timeout)
 		this.setState({ loading: false })
+		logPageView()
 	}
 	render(){
 		const delimeter = ' | '
