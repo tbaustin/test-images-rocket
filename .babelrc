@@ -4,7 +4,10 @@
 			"module-resolver", {
 				"root": ["."],
 				"alias": {
-					"styles": "./styles"
+					"styles": "./styles",
+					"json": "./json",
+					"utils": "./utils",
+					"config": "./config"
 				},
 				"cwd": "babelrc"
 			}

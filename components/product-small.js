@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import usdFormatter from 'usd-formatter'
+import env from 'json/env'
 
 export default class extends React.Component {
 	render() {
@@ -42,8 +43,7 @@ export default class extends React.Component {
 				<div className='price'>{ usdFormatter(this.props.data.price) }</div>
 				<div className='qty'>(QTY { this.props.data.qty })</div>
 				{
-					(process.env.DISABLE_ECOMMERCE) ?
-						'' :
+					env.ENABLE_ECOMMERCE &&
 						(
 							<div
 								className='cartBtn'

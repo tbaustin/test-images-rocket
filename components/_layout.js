@@ -8,6 +8,7 @@ import fastclick from 'react-fastclick'
 import Header from 'components/header/header'
 import Footer from 'components/footer/footer'
 import settings from 'components/_global-settings'
+import env from 'json/env'
 
 fastclick()
 
@@ -39,8 +40,6 @@ export default class Layout extends React.Component {
 			logPageView()
 		}
 
-		console.log(window.zygote)
-
 		// Zygote
 		if('zygote' in window){
 			zygote.findButtons()
@@ -48,8 +47,7 @@ export default class Layout extends React.Component {
 			zygote.findIcons()
 			// Zygote init
 			if (!zygote.api) {
-				console.log(process.env.ZYGOTE_API)
-				zygote.api = process.env.ZYGOTE_API
+				zygote.api = env.ZYGOTE_API
 				zygote.properties = { site: 'rocketbroadheads' }
 			}
 		}
