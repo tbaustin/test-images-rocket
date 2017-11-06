@@ -9,6 +9,8 @@ import Header from 'components/header/header'
 import Footer from 'components/footer/footer'
 import settings from 'components/_global-settings'
 import env from 'json/env'
+import { initStock } from 'utils/product/set-stock'
+import { initPrice } from 'utils/product/set-price'
 
 fastclick()
 
@@ -48,9 +50,12 @@ export default class Layout extends React.Component {
 			// Zygote init
 			if (!zygote.api) {
 				zygote.api = env.ZYGOTE_API
-				zygote.properties = { site: 'rocketbroadheads' }
+				zygote.properties = { site: 'rocket' }
 			}
 		}
+
+		initStock()
+		initPrice()
 
 		// Progress bar
 		clearTimeout(this.timeout)
@@ -89,7 +94,7 @@ export default class Layout extends React.Component {
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 					<meta content={ this.props.description ? this.props.description : pkg.description } name='description' />
 					<style>{ style }</style>
-					<link rel='icon' type='image/png' href='/static/favicon.png' />
+					<link rel='icon' type='image/png' href='/static/img/w_32/favicon.png' />
 					<link type='text/css' rel='stylesheet' href='https://zygote.netlify.com/zygote-v1.css' />
 					<link href="https://fonts.googleapis.com/css?family=Jura:400|Teko:400,700" rel="stylesheet" />
 				</Head>

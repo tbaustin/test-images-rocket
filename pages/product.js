@@ -5,6 +5,7 @@ import queryProduct from 'query-product'
 import usdFormatter from 'usd-formatter'
 import NumberInput from 'components/forms/number'
 import env from 'json/env'
+import Price from 'components/product/price'
 
 function getProduct(id){
 	let data = queryProduct({ id: id })[0]
@@ -57,7 +58,7 @@ export default class extends React.Component {
 						<h2>{description}</h2>
 						<div dangerouslySetInnerHTML={{ __html: this.props.contents }} />
 						<div className='info'>
-							<b>{ usdFormatter(this.props.price) }</b> <span>(QTY { this.props.qty })</span>
+							<b>$<Price product={this.props} /></b> <span>(QTY { this.props.qty })</span>
 						</div>
 						{
 							env.ENABLE_ECOMMERCE &&

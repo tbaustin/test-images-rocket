@@ -1,7 +1,12 @@
 'use strict'
 // .env variables to be exposed to client in config/env.json
 module.exports = [
-	'ENABLE_ECOMMERCE',
+	'NODE_ENV',
 	'GOOGLE_ANALYTICS_ID',
-	'ZYGOTE_API'
+	'ENABLE_ECOMMERCE',
+	'ENABLE_POSTS',
+	'ZYGOTE_API',
+	'STOCK_API',
+	'PRICING_API',
+	'ECOMMERCE_API_SITE'
 ]

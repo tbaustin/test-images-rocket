@@ -2,7 +2,6 @@
 title: Ultimate Steel®
 cut: 1
 grain: 100
-price: 24.99
 qty: 3
 order: 3
 images:
