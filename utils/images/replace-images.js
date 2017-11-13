@@ -32,7 +32,10 @@ module.exports = () => {
 				let matches = str.match(regLinks) || []
 				matches = matches.forEach(match => {
 					match = match.replace(regRemove, '')
-					if (found.indexOf(match) === -1) {
+					if (
+						found.indexOf(match) === -1 &&
+						match.split('/').pop().indexOf('.') > -1
+					) {
 						found.push(match)
 					}
 				})

@@ -31,6 +31,7 @@ module.exports = {
 					if (product.render === false) continue
 
 					// Category
+					/*
 					let categoryPath = `/category/${product.category}`
 					if (!pages[categoryPath]) {
 						pages[categoryPath] = {
@@ -38,6 +39,7 @@ module.exports = {
 							query: { id: product.category }
 						}
 					}
+					*/
 
 					// Product
 					pages[`/product/${product.id}`] = {
