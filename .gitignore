@@ -16,6 +16,7 @@ out
 dist
 .next
 json
+static
 
 # Temporary
 temp
