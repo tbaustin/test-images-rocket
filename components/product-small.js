@@ -2,8 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Price from 'components/utils/product/price'
 import env from 'json/env'
-import CartBtn from 'components/utils/product/add-cart-button'
-import IsAvailable from 'components/utils/product/is-available'
+import ProductEcomm from 'components/product-ecomm'
 
 export default class extends React.Component {
 	render() {
@@ -30,18 +29,8 @@ export default class extends React.Component {
 				</h1>
 				<div className='cut'>{description}</div>
 				<div className='price'><Price product={this.props.data} /></div>
-				<div className='qty'>(QTY { this.props.data.qty })</div>
-				<IsAvailable id={this.props.data.id}>
-					<CartBtn
-						id={this.props.data.id}
-						price={this.props.data.price}
-						img={`/static/img/product/w_150/${this.props.data.images[0]}.jpg`}
-						name={this.props.data.title}
-						desc={description}
-						>
-						<img className='cartBtn' src={`/static/img/btn${this.props.data.order}.svg`} />
-					</CartBtn>
-				</IsAvailable>
+				<div className='qty'>(QTY {this.props.data.qty})</div>
+				<ProductEcomm product={this.props.data} description={description} />
 				<style jsx>{`
 					h1{
 						font-family: 'Teko';
