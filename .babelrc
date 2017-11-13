@@ -1,28 +1,38 @@
 {
 	"plugins": [
-		[
-			"module-resolver", {
-				"root": ["."],
-				"alias": {
-					"styles": "./styles",
-					"json": "./json",
-					"utils": "./utils",
-					"config": "./config"
-				},
-				"cwd": "babelrc"
-			}
-		],
-		[
-			"wrap-in-js", {
-				"extensions": ["css$", "scss$"]
-			}
-		],
-		"transform-inline-environment-variables",
-		"babel-plugin-dotenv",
+		["module-resolver", {
+			"root": ["."],
+			"alias": {
+				"styles": "./styles",
+				"config": "./config",
+				"json": "./json",
+				"utils": "./utils"
+			},
+			"cwd": "babelrc"
+		}],
+		["styled-components", {
+			"ssr": true,
+			"displayName": true,
+			"preprocess": false
+		}],
+		["wrap-in-js", { "extensions": ["css$"] }],
 		"inline-react-svg"
 	],
 	"presets": [
-		"./config/babel-preset"
+		["next/babel", {
+			"styled-jsx": {
+				"plugins": [
+					"styled-jsx-plugin-postcss"
+				]
+			}
+		}]
 	],
-	"ignore": []
+	"ignore": [],
+	"env": {
+		"production": {
+			"plugins": [
+				["transform-remove-console"]
+			]
+		}
+	}
 }

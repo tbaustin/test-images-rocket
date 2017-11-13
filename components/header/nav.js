@@ -14,16 +14,16 @@ export default class extends React.Component {
 		return (
 			<nav className={ `${this.props.showing ? 'showing' : ''} ${this.props.home ? 'home' : ''}` } onClick={ this.onClick }>
 				<section>
-					<Link prefetch href='/product?product=as1303b' as='/product/as1303b'>
+					<Link prefetch href='/product?id=as1303b' as='/product/as1303b'>
 						<a>Steelhead&reg;</a>
 					</Link>
-					<Link prefetch href='/product?product=ar100us' as='/product/ar100us'>
+					<Link prefetch href='/product?id=ar100us' as='/product/ar100us'>
 						<a>Ultimate Steel&reg;</a>
 					</Link>
-					<Link prefetch href='/product?product=ar100sw' as='/product/ar100sw'>
+					<Link prefetch href='/product?id=ar100sw' as='/product/ar100sw'>
 						<a>Sidewinder&reg;</a>
 					</Link>
-					<Link prefetch href='/product?product=ar100hh' as='/product/ar100hh'>
+					<Link prefetch href='/product?id=ar100hh' as='/product/ar100hh'>
 						<a>Hammerhead&reg;</a>
 					</Link>
 				</section>

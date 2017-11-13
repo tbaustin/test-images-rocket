@@ -10,8 +10,8 @@ const lightThreshold = 60
 function createVideo(){
 	const video = document.createElement('video')
 	video.innerHTML = `
-		<source src='/static/splat.webm' type='video/webm' />
-		<source src='/static/splat.mp4' type='video/mp4' />
+		<source src='/static/img/splat.webm' type='video/webm' />
+		<source src='/static/img/splat.mp4' type='video/mp4' />
 	`
 	return video
 }
@@ -94,7 +94,7 @@ export default class extends React.Component {
 					div{
 						position: absolute;
 						left: -180px;
-						top: -220px;
+						top: -150px;
 						display: none;
 					}
 					canvas{

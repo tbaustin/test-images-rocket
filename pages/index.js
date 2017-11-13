@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from 'components/_layout'
 import Product from 'components/product-small'
-import { broadheads } from '../config/product.config'
-import queryProduct from 'query-product'
+import getCategory from 'utils/product/get-category'
 
 
-const productEls = queryProduct({})
+const productEls = getCategory('broadheads')
 	.map((product, key) => {
 		return <Product
 			data={ product }

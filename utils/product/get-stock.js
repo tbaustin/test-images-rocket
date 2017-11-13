@@ -1,34 +1,36 @@
 'use strict'
 const fetch = require('isomorphic-fetch')
-const product = require('../../json/product/all.json')
-const lowerIds = require('../../json/product-ids.json')
-const upperIds = lowerIds.map(id => id.toUpperCase())
+const env = require('../../json/env.json')
+const ids = require('../../json/product-ids.json')
 
 module.exports = () => {
-	return new Promise((resolve, reject) => {
-		fetch('https://kgft20mm4l.execute-api.us-east-1.amazonaws.com/production/post', {
+	if (env.STOCK_API) {
+		return fetch(env.STOCK_API, {
 				method: 'POST',
 				body: JSON.stringify({
-					site: 'all',
-					path: 'v1/salsify/search',
-					sku: { value: upperIds },
-					'inventory-only': 1
+					site: env.ECOMMERCE_API_SITE || 'all',
+					ids: ids
 				})
 			})
 			.then(res => res.json())
-			.then(res => {
-				let obj = {}
-				res.products.forEach((prod, key) => {
-					if (typeof prod.stock === 'number' && prod.stock > 0) {
-						obj[lowerIds[key]] = prod.stock
-					}
-					else {
-						obj[lowerIds[key]] = 0
-					}
-				})
-				return obj
-			})
-			.then(resolve)
-			.catch(reject)
+			.then(populateDebug)
+	}
+	console.log('Warning: STOCK_API variable not found in environment')
+	let obj = {}
+	ids.map(id => {
+		obj[id] = 0
 	})
+	return Promise.resolve(obj)
+		.then(populateDebug)
+}
+
+
+function populateDebug(obj) {
+	if (!env.DEBUG_ECOMMERCE) return obj
+	for (let i in obj) {
+		if (!obj[i]) {
+			obj[i] = 1
+		}
+	}
+	return obj
 }

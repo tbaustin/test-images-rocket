@@ -2,16 +2,17 @@ import React from 'react'
 import Loader from 'components/loader'
 
 function getUrl(id, suffix){
-	return `/static/product/${id}-${suffix}.jpg`
+	return `/static/img/product/${id}.jpg`
 }
 
 function subImg(id, onClick, stopBubbling){
 	return (
 		<a href={ getUrl(id, 'lg') } key={ id } onClick={ onClick }>
-			<img src={ getUrl(id, 'tn') } key={ id } />
+			<img src={`/static/img/product/w_150/h_150/${id}.jpg` } key={ id } />
 			<style jsx>{`
 				a{
 					lost-waffle: 1/3;
+					padding: 5px;
 				}
 				img{
 					max-width: 100%;

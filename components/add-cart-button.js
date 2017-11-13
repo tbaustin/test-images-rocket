@@ -1,5 +1,5 @@
 import React from 'react'
-import settings from 'components/_settings'
+import settings from 'components/_global-settings'
 import fetch from 'isomorphic-fetch'
 import fetchStock from 'utils/product/get-stock'
 import env from 'json/env.json'
@@ -47,10 +47,10 @@ export default class extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className='outer'>
 				{this.state.stock[this.props.id] > 0 &&
-					<button
-						className={this.state.stock === false && 'loading'}
+					<div
+						className={`cartBtn ${this.state.stock === false && 'loading'}`}
 						style={this.props.style || {}}
 						onClick={this.props.handleClick}
 						data-id={this.props.id}
@@ -59,18 +59,28 @@ export default class extends React.Component {
 						data-img={this.props.img}
 						data-url={this.props.url}
 						data-desc={this.props.desc}
-						data-qty={this.props.quantity}
+						data-qty={this.props.qty}
 						data-open-cart
 					>
-						Add to Cart
-					</button>
+						<img src={`/static/btn${this.props.order}.svg`} />
+					</div>
 				}
 				{this.state.stock[this.props.id] === 0 &&
 					<span>Out of Stock</span>
 				}
 				<style jsx>{`
-					div{
+					.outer{
 						height: 63px;
+						text-align: left;
+					}
+					.cartBtn{
+						cursor: pointer;
+						max-width: 80px;
+						max-height: 80px;
+						margin-top: 10px;
+						display: inline-block;
+						width: 80px;
+						height: 80px;
 					}
 					button {
 						border: 0;
