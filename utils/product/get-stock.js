@@ -4,6 +4,7 @@ const env = require('../../json/env.json')
 const ids = require('../../json/product-ids.json')
 
 module.exports = () => {
+	console.log('Getting stock...')
 	if (env.STOCK_API) {
 		return new Promise((resolve, reject) => {
 			fetch(env.STOCK_API, {
@@ -17,7 +18,7 @@ module.exports = () => {
 				.then(populateDebug)
 				.then(resolve)
 				.catch(err => {
-					console.error(err)
+					console.error('Stock error: ', err)
 					resolve(populateMissing({}))
 				})
 		})
@@ -41,6 +42,7 @@ function populateMissing(obj){
 }
 
 function populateDebug(obj) {
+	console.log('populateDebug()')
 	if (!env.DEBUG_ECOMMERCE) return obj
 	for (let i in obj) {
 		if (!obj[i]) {
