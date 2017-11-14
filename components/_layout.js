@@ -12,6 +12,7 @@ import { initPrice } from 'utils/product/set-price'
 import Header from 'components/header/header'
 import Footer from 'components/footer/footer'
 import PageLoadBar from 'components/page-load-animation'
+import FreeShipping from 'components/free-shipping'
 
 fastclick()
 
@@ -36,6 +37,7 @@ export default class Layout extends React.Component {
 				</Head>
 				<Header home={ this.props.home } />
 				<main>
+					<FreeShipping />
 					{ this.props.children }
 				</main>
 				<div className='footer'>
@@ -47,7 +49,7 @@ export default class Layout extends React.Component {
 				<style jsx>{`
 					main{
 						max-width: 1200px;
-						padding: 30px;
+						padding: 10px 30px 30px 30px;
 						margin: auto;
 						margin-bottom: 30px;
 					}
