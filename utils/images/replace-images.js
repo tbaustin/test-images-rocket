@@ -2,6 +2,7 @@
 const glob = require('globby')
 const fs = require('fs-extra')
 const transform = require('./transform-image')
+const additionalImages = require('../../config/process-images')
 
 let paths
 let contents
@@ -40,6 +41,7 @@ module.exports = () => {
 					}
 				})
 			})
+			found = found.concat(additionalImages)
 			return found
 		})
 
