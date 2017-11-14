@@ -27,7 +27,7 @@ export default class extends React.Component {
 	render(){
 		let price = this.state.price || this.props.product.price
 		if(price) price = `$${Number(price).toFixed(2)}`
-		else price = 'n/a'
+		else price = ''
 		return (
 			<span>{price}</span>
 		)

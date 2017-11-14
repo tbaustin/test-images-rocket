@@ -29,7 +29,7 @@ export default class extends React.Component {
 				</h1>
 				<div className='cut'>{description}</div>
 				<div className='price'><Price product={this.props.data} /></div>
-				<div className='qty'>(QTY {this.props.data.qty})</div>
+				<div className='qty'><b><Price product={this.props} /></b> (QTY {this.props.data.qty})</div>
 				<ProductEcomm product={this.props.data} description={description} />
 				<style jsx>{`
 					h1{
@@ -46,6 +46,9 @@ export default class extends React.Component {
 					}
 					.mainImg{
 						max-height: 150px;
+						margin-bottom: 10px;
+					}
+					.qty{
 						margin-bottom: 10px;
 					}
 					.cartBtn{

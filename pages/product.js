@@ -45,6 +45,9 @@ export default class extends React.Component {
 						h1{
 							font-size: 3em;
 						}
+						.info{
+							margin-bottom: 18px;
+						}
 						@media(min-width:1000px){
 							section:first-of-type{
 								lost-column: 1/3;
