@@ -26,7 +26,7 @@ export default class extends React.Component {
 						<div className='info'>
 							<b><Price product={this.props} /></b> <span>(QTY { this.props.qty })</span>
 						</div>
-						<ProductEcomm product={this.props} description={description} />
+						<ProductEcomm product={this.props} description={description} float />
 					</section>
 					<style jsx>{`
 						.cont{

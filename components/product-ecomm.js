@@ -25,7 +25,7 @@ export default class extends React.Component {
 	render(){
 		return (
 			<IsAvailable id={this.props.product.id}>
-				<div className='ecomm'>
+				<div className={`ecomm ${this.props.float ? 'float' : ''}`}>
 					<div className='qty'>
 						<NumberInput
 							min='1'
@@ -58,10 +58,14 @@ export default class extends React.Component {
 						text-align: center;
 					}
 					@media(min-width:1000px){
+						.float{
+							& > div{
+								float: left;
+							}
+						}
 						.ecomm{
 							lost-utility: clearfix;
 							& > div{
-								float: left;
 								&:first-of-type{
 									margin-right: 15px;
 								}
