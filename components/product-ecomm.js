@@ -44,6 +44,7 @@ export default class extends React.Component {
 							img={`/static/img/product/w_150/${this.props.product.images[0]}.jpg`}
 							name={this.props.product.title}
 							desc={this.props.description}
+							qty={this.state.qty}
 							>
 							<img className='cartBtn' src={`/static/img/btn${this.props.product.order}.svg`} />
 						</CartBtn>
