@@ -18,12 +18,7 @@ export default class extends React.Component {
 
 				<h1>
 
-					<Link prefetch href={{
-							pathname: '/product',
-							query: {
-								product: this.props.data.id
-							}
-						}} as={`/product/${this.props.id}`}>
+					<Link prefetch href={`/product?id=${this.props.data.id}`} as={`/product/${this.props.data.id}`}>
 						<a>{ this.props.data.title }</a>
 					</Link>
 				</h1>
