@@ -15,11 +15,11 @@ export default class extends React.Component{
 					<section>
 						<H1>Contact Us</H1>
 						<Form name='Contact' netlify='true' action='thank-you'>
-							<Input label='Name:' required />
-							<Input label='Email Address:' required />
-							<Textarea label='Message:' required />
+							<Input label='Name:' name='Name' required />
+							<Input label='Email Address:' name='Email' required />
+							<Textarea label='Message:' name='Message' required />
 							<button>
-								<img src='/static/send.svg' className='send' />
+								<img src='/static/img/send.svg' className='send' />
 							</button>
 						</Form>
 					</section>
