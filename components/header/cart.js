@@ -1,15 +1,43 @@
 import React from 'react'
 
 export default class extends React.Component {
+	constructor(props){
+		super(props)
+		this.onClick = this.onClick.bind(this)
+		this.getQty = this.getQty.bind(this)
+		this.state = { qty: 0 }
+	}
+	componentDidMount(){
+		if(window.zygote){
+			this.setState({ qty: this.getQty() })
+			zygote.onQtyUpdate = qty => {
+				this.setState({ qty: qty })
+			}
+		}
+	}
+	getQty() {
+		let qty = 0
+		if (global.zygote) {
+			for (let i in global.zygote.products) {
+				qty += global.zygote.products[i].qty
+			}
+		}
+		return qty
+	}
+	onClick(){
+		if(window.zygote){
+			zygote.open()
+		}
+	}
 	render(){
 		return (
-			<div className='zygoteIco'>
+			<div onClick={this.onClick}>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.77 27.49">
 					<g id="Layer_2" data-name="Layer 2"><g id="Content"><path className="cls-1" d="M7.1,6.39V0H0V1.64H5.45v22.2A1.91,1.91,0,1,0,8,26.39H22.15a1.92,1.92,0,1,0,0-1.64H8a1.92,1.92,0,0,0-.9-.9V18.13H23.42a4.67,4.67,0,0,0,4.15-2l5.2-9.72Z"/></g></g>
 				</svg>
-				<div className='zygoteQty'></div>
+				<span className={this.state.qty && 'hasQty'}>{this.state.qty}</span>
 				<style jsx>{`
-					.zygoteIco{
+					div{
 						position: absolute;
 						top: 50%;
 						right: 30px;
@@ -18,12 +46,13 @@ export default class extends React.Component {
 							& .cls-1{
 								fill: #860e1b;
 							}
-							& .zygoteQty{
+							& span{
 								background-color: #860e1b;
 							}
 						}
 					}
-					.zygoteQty{
+					span{
+						display: block;
 						position: absolute;
 						top: -5px;
 						right: 4px;
@@ -39,7 +68,7 @@ export default class extends React.Component {
 						transform: scale(0);
 						transition: transform .3s;
 					}
-					.zygoteHasQty{
+					.hasQty{
 						transform: scale(1);
 						color: #333;
 					}

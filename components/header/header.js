@@ -80,7 +80,7 @@ export default class extends React.Component {
 				}
 				<style jsx>{`
 					.bar{
-						background: url('/static/header-bg.jpg') no-repeat center center;
+						background: url('/static/img/header-bg.jpg') no-repeat center center;
 						background-size: cover;
 						width: 100%;
 						overflow: hidden;
@@ -98,7 +98,7 @@ export default class extends React.Component {
 					}
 					.home{
 						height: 50vh;
-						background: url('/static/home-bg.jpg') no-repeat bottom left;
+						background: url('/static/img/home-bg.jpg') no-repeat bottom left;
 						background-size: cover;
 					}
 					.splatCont{
