@@ -1,6 +1,6 @@
 ---
 title: Steelhead®
-id: AS1303B
+id: AR100SH
 category: broadheads
 cut: 1 - 1/8
 grain: 100
