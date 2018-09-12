@@ -4,7 +4,7 @@ export default class extends React.Component {
 	render(){
 		return (
 			<div>
-				Free shipping on orders over $40 with the coupon code FREESHIP
+				FREE SHIPPING ON ALL ORDERS
 				<style jsx>{`
 					div{
 						text-align: center;
