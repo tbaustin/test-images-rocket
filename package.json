@@ -64,7 +64,9 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.0.0",
+    "gatsby-source-product-markdown": "^1.0.9",
+    "react-escalade-priceline": "^1.0.21"
   },
   "main": "dist/index.js",
   "devDependencies": {

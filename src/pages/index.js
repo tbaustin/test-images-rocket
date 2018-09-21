@@ -1,67 +1,67 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { css } from 'emotion'
-import buttonStyles from 'styles/mixins/button'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
-import Modal from 'components/modal'
+import React from "react"
+import { css } from "emotion"
+import { graphql } from "gatsby"
 
-export default class HomePage extends React.Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			open: false,
-		}
-	}
+import Layout from "../components/layouts/default"
+import Product from "../components/product-small"
+
+export default class IndexPage extends React.Component {
 	render() {
-		const { html, frontmatter } = this.props.data.markdownRemark
-		const { headerImage } = frontmatter
+		const { productMarkdown } = this.props.data
+		const products = productMarkdown.edges.map(edge => edge.node)
+		console.log(products[0].main)
 		return (
-			<Layout>
-				<Meta />
-				<div dangerouslySetInnerHTML={{ __html: html }} />
-				<Img
-					className={styles}
-					sizes={headerImage.childImageSharp.sizes}
-					alt="Escalade Sports"
-				/>
-				<button
-					onClick={() => this.setState({ open: true })}
-					className={buttonStyles}
-				>
-					Test
-				</button>
-				<Modal
-					open={this.state.open}
-					onClose={() => this.setState({ open: false })}
-				>
-					<div>Modal content</div>
-				</Modal>
+			<Layout home={true}>
+				<div className={styles}>
+					{products.map((product, i) => (
+						<Product data={product} key={i} />
+					))}
+				</div>
 			</Layout>
 		)
 	}
 }
 
-const styles = css`
-	margin-bottom: 30px;
-`
-
 export const query = graphql`
-	query HomePage {
-		markdownRemark(fileAbsolutePath: {
-			regex: "/src/markdown/index.md/"
-		}){
-			html
-			frontmatter{
-				headerImage{
-					childImageSharp {
-						sizes(maxWidth: 1600, quality: 100) {
-							...GatsbyImageSharpSizes_withWebp
+	query indexPage {
+		productMarkdown: allMarkdownRemark(
+			filter: {
+				fileAbsolutePath: { regex: "/markdown/products/" }
+				frontmatter: { active: { ne: false } }
+			}
+		) {
+			edges {
+				node {
+					html
+					frontmatter {
+						title
+						id
+						category
+						cut
+						grain
+						qty
+						order
+						header
+						main {
+							childImageSharp {
+								sizes(maxWidth: 1600, quality: 100) {
+									...GatsbyImageSharpSizes
+								}
+							}
 						}
 					}
 				}
 			}
 		}
 	}
+`
+
+const styles = css`
+	& :before,
+	:after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+	margin-top: 40px;
 `

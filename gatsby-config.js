@@ -38,10 +38,12 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-robots-txt`,
 			options: {
-				policy: [{
-					userAgent: `*`,
-					disallow: [`/email-templates`],
-				}],
+				policy: [
+					{
+						userAgent: `*`,
+						disallow: [`/email-templates`],
+					},
+				],
 			},
 		},
 		`gatsby-plugin-netlify`,
@@ -59,6 +61,14 @@ module.exports = {
 				name: `uploads`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/markdown/products`,
+				name: `products`,
+			},
+		},
+		`gatsby-source-product-markdown`,
 		{
 			resolve: `gatsby-plugin-markdown-pages`,
 			options: {
@@ -157,11 +167,11 @@ module.exports = {
 				fonts: [
 					{
 						family: `Oswald`,
-						subsets: [ `latin` ],
+						subsets: [`latin`],
 					},
 					{
 						family: `Open Sans`,
-						subsets: [ `latin` ],
+						subsets: [`latin`],
 					},
 				],
 			},
@@ -174,7 +184,7 @@ module.exports = {
 			proxy({
 				target: `http://localhost:9000`,
 				pathRewrite: {
-					'/.netlify/functions/': ``,
+					"/.netlify/functions/": ``,
 				},
 			})
 		)
