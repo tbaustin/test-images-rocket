@@ -1,7 +1,7 @@
-import React from 'react'
-import { css } from 'emotion'
-import EmailTemplate from 'components/layouts/email'
-import linkMixin from 'styles/mixins/link'
+import React from "react"
+import { css } from "emotion"
+import EmailTemplate from "components/layouts/email"
+import linkMixin from "styles/mixins/link"
 
 export default class EmailLayout extends React.Component {
 	render() {
@@ -9,7 +9,7 @@ export default class EmailLayout extends React.Component {
 			<EmailTemplate title={this.props.title}>
 				<div className={styles.wrapper}>
 					<p className={styles.img}>
-						<img src='/backend-logo.png' />
+						<img src="/backend-logo.png" />
 					</p>
 					{this.props.children}
 				</div>
@@ -29,7 +29,7 @@ const styles = {
 	`,
 	img: css`
 		text-align: center;
-		img{
+		img {
 			width: 300px;
 		}
 	`,

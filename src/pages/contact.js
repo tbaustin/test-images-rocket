@@ -1,29 +1,22 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Form from 'react-netlify-form'
-import { css } from 'emotion'
-import buttonMixin from 'styles/mixins/button'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
+import React from "react"
+import { graphql } from "gatsby"
+import Form from "react-netlify-form"
+import { css } from "emotion"
+import buttonMixin from "styles/mixins/button"
+import Layout from "components/layouts/index"
+import Meta from "components/meta"
 
-export default class ContactPage extends React.Component{
-	render(){
-		const {
-			frontmatter,
-			html,
-			excerpt,
-		} =  this.props.data.markdownRemark
-		return(
+export default class ContactPage extends React.Component {
+	render() {
+		const { frontmatter, html, excerpt } = this.props.data.markdownRemark
+		return (
 			<Layout>
-				<Meta
-					title={frontmatter.title}
-					description={excerpt}
-				/>
+				<Meta title={frontmatter.title} description={excerpt} />
 				<div className={styles}>
 					<div dangerouslySetInnerHTML={{ __html: html }} />
-					<div className='form'>
+					<div className="form">
 						<Form
-							name='Contact'
+							name="Contact"
 							recaptcha={{
 								size: `invisible`,
 								sitekey: process.env.GATSBY_SITE_RECAPTCHA_KEY,
@@ -31,30 +24,29 @@ export default class ContactPage extends React.Component{
 						>
 							{({ loading, error, recaptchaError, success, recaptcha }) => (
 								<>
-									{loading && (
-										<div>Loading...</div>
-									)}
+									{loading && <div>Loading...</div>}
 									{error && (
 										<div>Your information was not sent. Please try again later.</div>
 									)}
 									{recaptchaError && (
-										<div>Recaptcha did not match. Please make sure the box is checked.</div>
+										<div>
+											Recaptcha did not match. Please make sure the box is checked.
+										</div>
 									)}
-									{success && (
-										<div>Thank you for contacting us!</div>
-									)}
-									{!loading && !success && (
-										<>
-											<div>
-												<input type='text' name='Name' required />
-											</div>
-											<div>
-												<textarea name='Message' required />
-											</div>
-											<div>
-												<button className={buttonMixin}>Submit</button>
-											</div>
-										</>
+									{success && <div>Thank you for contacting us!</div>}
+									{!loading &&
+										!success && (
+											<>
+												<div>
+													<input type="text" name="Name" required />
+												</div>
+												<div>
+													<textarea name="Message" required />
+												</div>
+												<div>
+													<button className={buttonMixin}>Submit</button>
+												</div>
+											</>
 									)}
 									{recaptcha}
 								</>
@@ -68,22 +60,20 @@ export default class ContactPage extends React.Component{
 }
 
 const styles = css`
-	label{
+	label {
 		display: block;
 	}
-	.grecaptcha-badge{
+	.grecaptcha-badge {
 		display: none !important;
 	}
 `
 
 export const query = graphql`
 	query ContactTemplate {
-		markdownRemark(fileAbsolutePath: {
-			regex: "/src/markdown/contact.md/"
-		}){
+		markdownRemark(fileAbsolutePath: { regex: "/src/markdown/contact.md/" }) {
 			html
 			excerpt(pruneLength: 175)
-			frontmatter{
+			frontmatter {
 				title
 			}
 		}

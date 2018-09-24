@@ -1,26 +1,45 @@
 html {
-	height: 100%;
-	box-sizing: border-box;
+ height: 100%;
+ box-sizing: border-box;
 }
 
-*, *:before, *:after {
-	box-sizing: inherit;
+*,
+*:before,
+*:after {
+ box-sizing: inherit;
+}
+@font-face {
+ font-family: 'Cybertron';
+ src: url('/fonts/cybertron/Cybertron.ttf.woff') format('woff'),
+  url('/fonts/cybertron/Cybertron.ttf.svg#Cybertron') format('svg'),
+  url('/fonts/cybertron/Cybertron.ttf.eot'),
+  url('/fonts/cybertron/Cybertron.ttf.eot?#iefix') format('embedded-opentype');
+ font-weight: normal;
+ font-style: normal;
+ font-weight: normal;
+ font-style: normal;
 }
 
 body {
-	position: relative;
-	height: 100%;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-	text-rendering: optimizeLegibility;
-	font-size: 18px;
+ position: relative;
+ height: 100%;
+ margin: 0;
+ font-family: 'Cybertron', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', sans-serif;
+ text-rendering: optimizeLegibility;
+ font-size: 18px;
+}
+svg {
+ font-family: 'Cybertron';
 }
 
-html, body {
-	-webkit-tap-highlight-color: transparent;
-	max-width: 100%;
+html,
+body {
+ -webkit-tap-highlight-color: transparent;
+ max-width: 100%;
 }
 
-img{
-	max-width: 100%;
+img {
+ max-width: 100%;
 }

@@ -1,96 +1,97 @@
 import React from "react"
-// import Link from "gatsby-link"
-// import { css } from "emotion"
+import Link from "gatsby-link"
+import { css } from "emotion"
 
 // import { PriceAndStock } from "react-escalade-priceline"
 // import ProductEcomm from "components/product-ecomm"
 
 export default class ProductSmall extends React.Component {
 	render() {
+		console.log()
+		let img = this.props.data.images[0].src
+		const description =
+			this.props.data.cut && this.props.data.grain
+				? `${this.props.data.cut}" Cut (${this.props.data.grain} grain)`
+				: ``
 		return (
-			<div className="outer">
-				Here is a product
-				{/* <Link
-					prefetch
-					href={`/product?id=${this.props.data.id}`}
-					as={`/product/${this.props.data.id}`}
-				>
-					<a>
-						{img ? (
-							<img src={img} className="mainImg" />
-						) : (
-							<div className="mainImg">
-								<img src={img} alt="mainImg" />
-							</div>
-						)}
-					</a>
+			<div className={`${styles} outer`}>
+				<Link to={`/product/${this.props.data.id}`}>
+					{img ? (
+						<img src={img} className="mainImg" />
+					) : (
+						<div className="mainImg">
+							<img src={img} alt="mainImg" />
+						</div>
+					)}
 				</Link>
-
 				<h1>
-					<Link
-						prefetch
-						href={`/product?id=${this.props.data.id}`}
-						as={`/product/${this.props.data.id}`}
-					>
-						<a>{this.props.data.title}</a>
-					</Link>
+					<Link to={`/product/${this.props.data.id}`}>{this.props.data.title}</Link>
 				</h1>
 				<div className="cut">{description}</div>
 				<div className="price-qty">
-					Price (QTY {this.props.data.qty})
-					<PriceAndStock site="rocketbroadheads" id={this.props.data.id}>
-      {({ stock, price, loading }) => {
-       if (loading) return <div>Loading...</div>
-       console.log(price)
-       return (
-        <div>
-         <div>Price: {price}</div>
-         <div>Stock: {stock}</div>
-        </div>
-       )
-      }}
-     </PriceAndStock> 
+					Price <span className="qty">(QTY {this.props.data.qty})</span>
+					{/* <PriceAndStock site="rocketbroadheads" id={this.props.data.id}>
+						{({ stock, price, loading }) => {
+							if (loading) return <div>Loading...</div>
+							console.log(price)
+							return (
+								<div>
+									<div>Price: {price}</div>
+									<div>Stock: {stock}</div>
+								</div>
+							)
+						}}
+					</PriceAndStock> */}
 				</div>
-				<ProductEcomm product={this.props.data} description={description} /> */}
+				{/* <ProductEcomm product={this.props.data} description={description} /> */}
 			</div>
 		)
 	}
 }
 
-// const styles = css`
-// 	h1 {
-// 		font-weight: 400;
-// 		font-size: 2em;
-// 		margin-bottom: 0;
-// 		margin-top: 0;
-// 		font-style: italic;
-// 	}
-// 	.outer {
-// 		text-align: center;
-// 		margin-bottom: 30px;
-// 	}
-// 	div.mainImg {
-// 		height: 150px;
-// 	}
-// 	.mainImg {
-// 		max-height: 150px;
-// 		margin-bottom: 10px;
-// 	}
-// 	.price-qty {
-// 		margin-top: 30px;
-// 	}
-// 	.cartBtn {
-// 		cursor: pointer;
-// 		width: 80px;
-// 	}
-// 	@media (min-width: 600px) {
-// 		.outer {
-// 			lost-column: 1/2;
-// 		}
-// 	}
-// 	@media (min-width: 1000px) {
-// 		.outer {
-// 			lost-column: 1/4;
-// 		}
-// 	}
-// `
+const styles = css`
+	.qty,
+	.cut {
+		font-family: "Teko";
+		font-weight: 700;
+	}
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 1.3em;
+		margin: 0;
+	}
+	a {
+		color: #860e1b;
+		text-decoration: none;
+	}
+	&.outer {
+		text-align: center;
+		margin-bottom: 30px;
+		width: 100%;
+	}
+	div.mainImg {
+		height: 150px;
+	}
+	.mainImg {
+		max-height: 150px;
+		margin-bottom: 10px;
+	}
+	.price-qty {
+		margin-top: 30px;
+	}
+	.cartBtn {
+		cursor: pointer;
+		width: 80px;
+	}
+	@media (min-width: 600px) {
+		&.outer {
+			width: 50%;
+		}
+	}
+	@media (min-width: 1000px) {
+		&.outer {
+			width: 25%;
+		}
+	}
+`

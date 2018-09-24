@@ -7,12 +7,9 @@ grain: 100
 qty: 3
 order: 3
 images:
- - /uploads/product/ar100hhxt-1.png
- - /uploads/product/ar100hhxt-2.png
- - /uploads/product/ar100hhxt-3.png
- - /uploads/product/ar100hhxt-4.png
- - /uploads/product/ar100hhxt-5.png
-main: /uploads/ar100hhxt-1.png
+ - src: /uploads/ar100hhxt-1.png
+ - src: /uploads/ar100hhxt-2.png
+ - src: /uploads/ar100hhxt-3.png
 header: Will cause fatality upon contact.
 ---
 

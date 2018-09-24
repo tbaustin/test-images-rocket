@@ -7,10 +7,9 @@ grain: 100
 qty: 3
 order: 4
 images:
- - ar100swxt-1
- - ar100swxt-2
- - ar100swxt-3
- - ar100swxt-4
+ - src: /uploads/ar100swxt-1.png
+ - src: /uploads/ar100swxt-2.png
+ - src: /uploads/ar100swxt-3.png
 header: Stay out of the sidewinders way.
 ---
 

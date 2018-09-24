@@ -1,41 +1,29 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { css } from 'emotion'
-import Link from 'gatsby-link'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
-import TagList from 'components/blog/tag-list'
+import React from "react"
+import { graphql } from "gatsby"
+import { css } from "emotion"
+import Link from "gatsby-link"
+import Layout from "components/layouts/index"
+import Meta from "components/meta"
+import TagList from "components/blog/tag-list"
 
-export default class PostTemplate extends React.Component{
-	render(){
-		const {
-			frontmatter,
-			html,
-			excerpt,
-		} =  this.props.data.post
-		const {
-			title,
-			tags,
-			date,
-			formattedDate,
-		} = frontmatter
+export default class PostTemplate extends React.Component {
+	render() {
+		const { frontmatter, html, excerpt } = this.props.data.post
+		const { title, tags, date, formattedDate } = frontmatter
 
 		const { id, nextId, previousId } = this.props.pageContext
 		let next = false
 		let previous = false
-		if(id !== nextId){
+		if (id !== nextId) {
 			next = this.props.data.next
 		}
-		if(id !== previousId){
+		if (id !== previousId) {
 			previous = this.props.data.previous
 		}
 
-		return(
+		return (
 			<Layout>
-				<Meta
-					title={title}
-					description={excerpt}
-				/>
+				<Meta title={title} description={excerpt} />
 				<h1>{title}</h1>
 				<time dateTime={date}>{formattedDate}</time>
 				<TagList tags={tags} />
@@ -43,9 +31,7 @@ export default class PostTemplate extends React.Component{
 				<div>
 					{next && (
 						<div className={styles.next}>
-							<Link to={next.fields.path}>
-								Next Post: {next.frontmatter.title}
-							</Link>
+							<Link to={next.fields.path}>Next Post: {next.frontmatter.title}</Link>
 						</div>
 					)}
 					{previous && (
@@ -63,7 +49,7 @@ export default class PostTemplate extends React.Component{
 
 const styles = {
 	next: css`
-		@media(min-width: 600px){
+		@media (min-width: 600px) {
 			float: right;
 		}
 	`,
@@ -71,37 +57,31 @@ const styles = {
 
 export const query = graphql`
 	query PostTemplate($id: String!, $previousId: String!, $nextId: String!) {
-		post: markdownRemark(
-			id: { eq: $id }
-		){
+		post: markdownRemark(id: { eq: $id }) {
 			html
 			excerpt(pruneLength: 175)
-			frontmatter{
+			frontmatter {
 				title
-				tags,
-				date,
+				tags
+				date
 				formattedDate: date(formatString: "MMMM DD, YYYY")
 			}
 		}
 
-		previous: markdownRemark(
-			id: { eq: $previousId }
-		){
-			frontmatter{
+		previous: markdownRemark(id: { eq: $previousId }) {
+			frontmatter {
 				title
 			}
-			fields{
+			fields {
 				path
 			}
 		}
 
-		next: markdownRemark(
-			id: { eq: $nextId }
-		){
-			frontmatter{
+		next: markdownRemark(id: { eq: $nextId }) {
+			frontmatter {
 				title
 			}
-			fields{
+			fields {
 				path
 			}
 		}

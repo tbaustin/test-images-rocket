@@ -2,6 +2,37 @@ require(`dotenv`).config({ silent: true })
 const path = require(`path`)
 const proxy = require(`http-proxy-middleware`)
 const config = require(`./site-config`)
+const fs = require(`fs-extra`)
+const matter = require(`front-matter`)
+
+// fetch ids from product markdown (include variant ids)
+let ids = []
+const productPages = fs.readdirSync(`${__dirname}/src/markdown/products/`)
+productPages.forEach(page => {
+	let data = fs.readFileSync(
+		`${__dirname}/src/markdown/products/${page}`,
+		`utf8`
+	)
+	data = data.toString()
+	data = matter(data)
+	const { variants, id } = data.attributes
+
+	if (variants) {
+		variants.forEach(variant => {
+			if (ids.indexOf(variant.id.toUpperCase()) !== -1) {
+				return
+			}
+			ids.push(variant.id.toUpperCase())
+		})
+	}
+	if (id) {
+		if (ids.indexOf(id.toUpperCase()) !== -1) {
+			return
+		}
+		ids.push(id.toUpperCase())
+	}
+})
+console.log(`${ids.length} Products fetched from salsify`)
 
 module.exports = {
 	plugins: [
@@ -135,10 +166,11 @@ module.exports = {
 		`route-delayed-animation`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-polyfill-io`,
+		`product-pages`,
 		{
 			resolve: `gatsby-plugin-favicon`,
 			options: {
-				logo: `./src/img/icon.png`,
+				logo: `./src/img/favicon.png`,
 				injectHTML: true,
 				icons: {
 					android: false,
@@ -174,6 +206,28 @@ module.exports = {
 						subsets: [`latin`],
 					},
 				],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-zygote`,
+			options: {
+				api: `https://yh5fc30fhh.execute-api.us-east-1.amazonaws.com/production/handler`,
+				properties: {
+					site: `goalrilla`,
+				},
+			},
+		},
+		{
+			resolve: `gatsby-source-salsify`,
+			options: {
+				ids: ids,
+				org: `rocket`,
+				media: [`webImages`],
+				types: {
+					webImages: `array`,
+					summaryBullets: `array`,
+				},
+				apiKey: process.env.SALSIFY_KEY,
 			},
 		},
 	],

@@ -2,14 +2,13 @@ import React from "react"
 import { css } from "emotion"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layouts/default"
+import Layout from "../components/layouts/index"
 import Product from "../components/product-small"
 
 export default class IndexPage extends React.Component {
 	render() {
 		const { productMarkdown } = this.props.data
-		const products = productMarkdown.edges.map(edge => edge.node)
-		console.log(products[0].main)
+		const products = productMarkdown.edges.map(edge => edge.node.frontmatter)
 		return (
 			<Layout home={true}>
 				<div className={styles}>
@@ -25,10 +24,7 @@ export default class IndexPage extends React.Component {
 export const query = graphql`
 	query indexPage {
 		productMarkdown: allMarkdownRemark(
-			filter: {
-				fileAbsolutePath: { regex: "/markdown/products/" }
-				frontmatter: { active: { ne: false } }
-			}
+			filter: { fileAbsolutePath: { regex: "/markdown/products/" } }
 		) {
 			edges {
 				node {
@@ -42,12 +38,8 @@ export const query = graphql`
 						qty
 						order
 						header
-						main {
-							childImageSharp {
-								sizes(maxWidth: 1600, quality: 100) {
-									...GatsbyImageSharpSizes
-								}
-							}
+						images {
+							src
 						}
 					}
 				}
@@ -57,6 +49,9 @@ export const query = graphql`
 `
 
 const styles = css`
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 	& :before,
 	:after {
 		content: "";

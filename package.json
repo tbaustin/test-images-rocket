@@ -65,8 +65,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
+    "gatsby-plugin-zygote": "^1.0.3",
     "gatsby-source-product-markdown": "^1.0.9",
-    "react-escalade-priceline": "^1.0.21"
+    "gatsby-source-salsify": "1.0.13",
+    "react-escalade-priceline": "^1.0.21",
+    "react-fastclick": "^3.0.2"
   },
   "main": "dist/index.js",
   "devDependencies": {

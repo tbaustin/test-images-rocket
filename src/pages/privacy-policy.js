@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "components/layouts/index"
+import Meta from "components/meta"
 
-export default class PrivacyPolicyPage extends React.Component{
-	render(){
+export default class PrivacyPolicyPage extends React.Component {
+	render() {
 		const { html, excerpt, frontmatter } = this.props.data.markdownRemark
 		const { title, address, email } = frontmatter
 		const addressHTML = address.replace(/\n/g, `<br />`)
@@ -12,7 +12,7 @@ export default class PrivacyPolicyPage extends React.Component{
 		const processedHTML = html
 			.replace(/{{address}}/g, addressHTML)
 			.replace(/{{email}}/g, emailHTML)
-		return(
+		return (
 			<Layout>
 				<Meta title={title} description={excerpt} />
 				<div dangerouslySetInnerHTML={{ __html: processedHTML }} />
@@ -23,12 +23,12 @@ export default class PrivacyPolicyPage extends React.Component{
 
 export const query = graphql`
 	query PrivacyPolicyTemplate {
-		markdownRemark(fileAbsolutePath: {
-			regex: "/src/markdown/privacy-policy.md/"
-		}){
+		markdownRemark(
+			fileAbsolutePath: { regex: "/src/markdown/privacy-policy.md/" }
+		) {
 			html
 			excerpt(pruneLength: 175)
-			frontmatter{
+			frontmatter {
 				title
 				address
 				email

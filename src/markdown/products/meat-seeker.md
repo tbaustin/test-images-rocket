@@ -7,11 +7,10 @@ grain: 100
 qty: 3
 order: 1
 images:
- - ar100ms-1
- - ar100ms-2
- - ar100ms-3
- - ar100ms-4
- - ar100ms-5
+ - src: /uploads/ar100ms-1.png
+ - src: /uploads/ar100ms-2.png
+ - src: /uploads/ar100ms-3.png
+
 header: Will result in serious blood loss.
 ---
 

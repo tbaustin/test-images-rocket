@@ -1,14 +1,11 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "components/layouts/index"
+import Meta from "components/meta"
 
 export default class NotFoundPage extends React.Component {
 	render() {
-		const {
-			frontmatter,
-			html,
-		} = this.props.data.markdownRemark
+		const { frontmatter, html } = this.props.data.markdownRemark
 		return (
 			<Layout>
 				<Meta title={frontmatter.title} />
@@ -20,11 +17,9 @@ export default class NotFoundPage extends React.Component {
 
 export const query = graphql`
 	query NotFoundPage {
-		markdownRemark(fileAbsolutePath: {
-			regex: "/src/markdown/404.md/"
-		}){
+		markdownRemark(fileAbsolutePath: { regex: "/src/markdown/404.md/" }) {
 			html
-			frontmatter{
+			frontmatter {
 				title
 			}
 		}

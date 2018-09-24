@@ -1,24 +1,23 @@
-import React from 'react'
-import { css } from 'emotion'
-import Layout from 'components/layouts/default'
-import Meta from 'components/meta'
-import createGrid from 'styles/mixins/grid'
+import React from "react"
+import { css } from "emotion"
+import Layout from "components/layouts/index"
+import Meta from "components/meta"
+import createGrid from "styles/mixins/grid"
 
-export default class GridPage extends React.Component{
-	render(){
-
-		return(
+export default class GridPage extends React.Component {
+	render() {
+		return (
 			<Layout>
-				<Meta title='Grid Example' />
+				<Meta title="Grid Example" />
 				<h1>Grid Example</h1>
 				<div className={styles}>
-					{function(){
+					{(function() {
 						const els = []
-						for(let i = 0; i < 31; i++){
+						for (let i = 0; i < 31; i++) {
 							els.push(<div key={`grid${i}`}>{i + 1}</div>)
 						}
 						return els
-					}()}
+					})()}
 				</div>
 			</Layout>
 		)
@@ -35,8 +34,7 @@ const styles = css`
 			600: 3,
 			900: 4,
 		},
-	})}
-	> *{
+	})} > * {
 		background: #ccc;
 		border: 1px solid #000;
 	}

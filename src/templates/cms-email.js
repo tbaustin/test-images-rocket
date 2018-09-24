@@ -1,8 +1,8 @@
-import React from 'react'
-import { css } from 'emotion'
-import { graphql } from 'gatsby'
-import EmailTemplate from 'components/layouts/email'
-import linkMixin from 'styles/mixins/link'
+import React from "react"
+import { css } from "emotion"
+import { graphql } from "gatsby"
+import EmailTemplate from "../components/layouts/email"
+import linkMixin from "styles/mixins/link"
 
 export default class CMSEmailTemplate extends React.Component {
 	render() {
@@ -12,9 +12,9 @@ export default class CMSEmailTemplate extends React.Component {
 			<EmailTemplate title={title}>
 				<div className={styles.wrapper}>
 					<p className={styles.img}>
-						<img src='/backend-logo.png' />
+						<img src="/backend-logo.png" />
 					</p>
-					<div dangerouslySetInnerHTML={{__html: html}} />
+					<div dangerouslySetInnerHTML={{ __html: html }} />
 				</div>
 			</EmailTemplate>
 		)
@@ -26,28 +26,23 @@ const styles = {
 		max-width: 600px;
 		padding: 20px;
 		margin: 0 auto;
-		a{
+		a {
 			${linkMixin};
 		}
 	`,
 	img: css`
 		text-align: center;
-		img{
+		img {
 			width: 300px;
 		}
 	`,
 }
 
-
 export const query = graphql`
-	query CMSEmail(
-		$fileAbsolutePath: String
-	) {
-		markdownRemark(fileAbsolutePath: {
-			eq: $fileAbsolutePath
-		}){
+	query CMSEmail($fileAbsolutePath: String) {
+		markdownRemark(fileAbsolutePath: { eq: $fileAbsolutePath }) {
 			html
-			frontmatter{
+			frontmatter {
 				title
 			}
 		}
