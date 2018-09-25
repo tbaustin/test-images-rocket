@@ -99,6 +99,13 @@ module.exports = {
 				name: `products`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/img`,
+				name: `img`,
+			},
+		},
 		`gatsby-source-product-markdown`,
 		{
 			resolve: `gatsby-plugin-markdown-pages`,

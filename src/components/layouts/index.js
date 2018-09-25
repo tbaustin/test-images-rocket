@@ -1,7 +1,8 @@
 import React, { Fragment } from "react"
 import { css } from "emotion"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import { Helmet } from "react-helmet"
-import fastclick from "react-fastclick"
 import RouteDelayed from "plugins/route-delayed-animation"
 
 import Header from "../header/header"
@@ -10,17 +11,26 @@ import Footer from "../footer/footer"
 import RouteDelayedAnimation from "components/route-delayed-animation"
 import "styles/global.css"
 
-fastclick()
-
 export default class Layout extends React.Component {
 	render() {
+		const { header, yellowNature, nature } = this.props
 		return (
 			<Fragment>
 				<Helmet>
 					<html lang="en" />
 				</Helmet>
 				<div className={`cont ${styles}`}>
-					<Header home={this.props.home} product={this.props.product} />
+					<Img
+						css={{ top: 0, left: 0, right: 0, bottom: 0 }}
+						style={{ position: `absolute`, zIndex: `-5` }}
+						fluid={yellowNature.childImageSharp.fluid}
+					/>
+					<Header
+						header={header}
+						nature={nature}
+						home={this.props.home}
+						product={this.props.product}
+					/>
 					<div className={`wrapperHome`}>
 						<main className={this.props.home ? `homeLayout` : ``}>
 							{/* <FreeShipping /> */}
@@ -46,6 +56,32 @@ export default class Layout extends React.Component {
 	}
 }
 
+export const query = graphql`
+	fragment layoutFragment on Query {
+		header: file(relativePath: { regex: "/header.png/" }) {
+			childImageSharp {
+				fluid(maxWidth: 1600, rotate: 180) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
+		nature: file(relativePath: { regex: "/nature-texture.jpg/" }) {
+			childImageSharp {
+				fluid(maxWidth: 1600, rotate: 180) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
+		yellowNature: file(relativePath: { regex: "/yellow-nature-texture.png/" }) {
+			childImageSharp {
+				fluid(maxWidth: 1600, rotate: 180) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
+	}
+`
+
 const styles = css`
 	main.homeLayout {
 		max-width: 1200px;
@@ -58,18 +94,14 @@ const styles = css`
 		padding: 0;
 		margin: 0;
 	}
-	&.cont {
-		background: url("/yellow-nature-texture.png") top center no-repeat;
-		background-size: cover;
-	}
-	.wrapperHome {
-		background: url("/yellow-nature-texture.png") top center no-repeat;
-		background-size: cover;
-	}
 	@media (min-width: 1000px) {
 		.footer {
 			height: 0;
 			transform: translateY(-80px);
+			/* position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0; */
 		}
 		.footer.homeFooter,
 		.footer.default {

@@ -36,7 +36,6 @@ export default class ProductEcomm extends React.Component {
 					<div>
 						<CartBtn
 							id={this.props.product.id}
-							price={this.props.product.price}
 							img={`/static/img/product/w_150/${this.props.product.images[0]}.jpg`}
 							name={this.props.product.title}
 							desc={this.props.description}

@@ -14,7 +14,7 @@ export default class ProductSmall extends React.Component {
 				: ``
 		return (
 			<div className={`${styles} outer`}>
-				<Link to={`/product/${this.props.data.id}`}>
+				<Link to={`/product/${this.props.data.id.toLowerCase()}`}>
 					{img ? (
 						<img src={img} className="mainImg" />
 					) : (
@@ -24,7 +24,9 @@ export default class ProductSmall extends React.Component {
 					)}
 				</Link>
 				<h1>
-					<Link to={`/product/${this.props.data.id}`}>{this.props.data.title}</Link>
+					<Link to={`/product/${this.props.data.id.toLowerCase()}`}>
+						{this.props.data.title}
+					</Link>
 				</h1>
 				<div className="cut">{description}</div>
 				<div className="price-qty">

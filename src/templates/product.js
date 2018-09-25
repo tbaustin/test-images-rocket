@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "components/layouts/index"
 import SpecBar from "../components/spec-bar"
 import ProductImages from "../components/product-images"
-// import ProductEcomm from "components/product-ecomm"
+import ProductEcomm from "components/product-ecomm"
 import Tagline3 from "../img/tagline-3.svg"
 import Tagline4 from "../img/tagline-4.svg"
 import Tagline5 from "../img/tagline-5.svg"
@@ -37,7 +37,7 @@ export default class ProductTemplate extends React.Component {
 		const { longDescription, webImages } = salsifyContent
 		const images = webImages.map(image => image.url)
 		const { html, frontmatter } = markdownRemark
-		const { cut, grain, header, qty, title } = frontmatter
+		const { cut, grain, header, qty, title, id } = frontmatter
 		return (
 			<Layout product>
 				<div className={`${styles} contProduct`}>
@@ -45,9 +45,9 @@ export default class ProductTemplate extends React.Component {
 					<section className="images">
 						<ProductImages images={images} />
 					</section>
-					<section className="info">
-						<div className="tagline">{this.renderTagline()}</div>
+					<div className="tagline">{this.renderTagline()}</div>
 
+					<section className="info">
 						<h1>
 							{title === `Meat Seeker Crossbow` ? `meat seeker` : title}
 							{title === `Meat Seeker Crossbow` ? (
@@ -64,11 +64,15 @@ export default class ProductTemplate extends React.Component {
 								<span>(QTY {qty})</span>
 							</div>
 							<div className="qty">
-								{/* <ProductEcomm
-									product={this.props}
+								<ProductEcomm
+									product={{
+										id,
+										images,
+										title,
+									}}
 									description={longDescription}
 									productPage
-								/> */}
+								/>
 							</div>
 						</div>
 					</section>
@@ -83,6 +87,7 @@ export const query = graphql`
 		markdownRemark(frontmatter: { id: { eq: $upperId } }) {
 			html
 			frontmatter {
+				id
 				category
 				cut
 				grain
@@ -184,6 +189,8 @@ const styles = css`
 	.info {
 		padding: 40px;
 		height: 100%;
+		position: relative;
+		z-index: 3;
 	}
 	.ecom {
 		margin-top: 45px;
@@ -236,7 +243,7 @@ const styles = css`
 			height: 100vh;
 		}
 		.tagline {
-			z-index: 1;
+			z-index: 2;
 			display: block;
 			position: absolute;
 			width: 60%;

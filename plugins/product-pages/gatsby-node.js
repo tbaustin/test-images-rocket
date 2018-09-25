@@ -25,14 +25,12 @@ exports.createPages = ({ graphql, actions }) => {
 				// loop through results to create pages
 
 				edges.forEach(({ node }) => {
-					const markdownId = node.id
-						.slice(node.id.indexOf(`-`) + 1, node.id.length)
-						.toUpperCase()
+					const markdownId = node.id.slice(node.id.indexOf(`-`) + 1, node.id.length)
 					createPage({
-						path: `/product/${markdownId}`,
+						path: `/product/${markdownId.toLowerCase()}`,
 						component: productTemplate,
 						context: {
-							upperId: markdownId,
+							upperId: markdownId.toUpperCase(),
 							lowerId: markdownId.toLowerCase(),
 						},
 					})

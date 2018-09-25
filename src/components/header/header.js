@@ -1,6 +1,7 @@
 import Link from "gatsby-link"
 import React from "react"
 import { css } from "emotion"
+import Img from "gatsby-image"
 
 import Cart from "./cart"
 import Hamburger from "./hamburger"
@@ -38,13 +39,27 @@ export default class Header extends React.Component {
 		window.removeEventListener(`resize`, this.hideNav)
 	}
 	render() {
+		const { header, nature } = this.props
 		return (
 			<section className={`${styles} wrapper`}>
+				<Img
+					fluid={nature.childImageSharp.fluid}
+					css={{ top: 0, left: 0, right: 0, bottom: 0 }}
+					style={{ position: `absolute`, zIndex: `-2` }}
+				/>
 				<section
 					className={`bar ${this.props.home ? `homeHeader` : ``} ${
 						this.props.product ? `product` : ``
 					}`}
 				>
+					{this.props.home ? (
+						<Img
+							fluid={header.childImageSharp.fluid}
+							css={{ top: 0, left: 0, right: 0, bottom: 0 }}
+							style={{ position: `absolute` }}
+						/>
+					) : null}
+
 					<header>
 						<Nav
 							showing={this.state.showing}
@@ -88,9 +103,6 @@ export default class Header extends React.Component {
 
 const styles = css`
 	.bar {
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-			url("/nature-texture.jpg") no-repeat center center;
-		background-size: cover;
 		width: 100%;
 		min-height: 275px;
 	}
@@ -136,14 +148,11 @@ const styles = css`
 		margin-right: auto !important;
 	}
 	&.wrapper {
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-			url("/nature-texture.jpg"), no-repeat bottom left;
-		background-size: cover;
+		position: relative;
 	}
 	.homeHeader {
 		height: 50vh;
-		background: url("/header.png"), no-repeat bottom left;
-		background-size: cover;
+
 		min-height: 550px;
 		max-height: 600px;
 		max-width: 1200px;

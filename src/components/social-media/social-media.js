@@ -16,13 +16,25 @@ export default class SocialMedia extends React.Component {
 						<TwitterLogo />
 					</li> */}
 					<li className="socialMedia__item">
-						<FacebookLogo />
+						<a
+							href="https://www.facebook.com/rocketbroadheads/"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
+							<FacebookLogo />
+						</a>
 					</li>
 					<li className="socialMedia__item">
 						<IconContext.Provider
 							value={{ style: { color: `#fff`, height: `25px`, width: `25px` } }}
 						>
-							<FaYoutube />
+							<a
+								href="https://www.youtube.com/user/RocketBroadheads"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								<FaYoutube />
+							</a>
 						</IconContext.Provider>
 					</li>
 					{/* <li className="socialMedia__item">

@@ -7,10 +7,17 @@ import Product from "../components/product-small"
 
 export default class IndexPage extends React.Component {
 	render() {
-		const { productMarkdown } = this.props.data
-		const products = productMarkdown.edges.map(edge => edge.node.frontmatter)
+		const { productMarkdown, header, nature, yellowNature } = this.props.data
+		const products = productMarkdown.edges
+			.map(edge => edge.node.frontmatter)
+			.sort((a, b) => a.order - b.order)
 		return (
-			<Layout home={true}>
+			<Layout
+				home={true}
+				header={header}
+				nature={nature}
+				yellowNature={yellowNature}
+			>
 				<div className={styles}>
 					{products.map((product, i) => (
 						<Product data={product} key={i} />
@@ -23,6 +30,7 @@ export default class IndexPage extends React.Component {
 
 export const query = graphql`
 	query indexPage {
+		...layoutFragment
 		productMarkdown: allMarkdownRemark(
 			filter: { fileAbsolutePath: { regex: "/markdown/products/" } }
 		) {
