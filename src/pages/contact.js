@@ -15,7 +15,7 @@ export default class Contact extends React.Component {
 		const { frontmatter, html } = markdownRemark
 		const { title } = frontmatter
 		return (
-			<Layout>
+			<Layout defaultFooter>
 				<main className={styles}>
 					<section className={`content`}>
 						<h1 className={`title`}>{title}</h1>

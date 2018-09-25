@@ -6,7 +6,10 @@ cut: 2
 grain: 100
 qty: 3
 order: 3
-images: [ar100hhxt-1.png, ar100hhxt-2.png, ar100hhxt-3.png]
+images:
+ - /uploads/ar100hhxt-1.png
+ - /uploads/ar100hhxt-2.png
+ - /uploads/ar100hhxt-3.png
 header: Will cause fatality upon contact.
 ---
 

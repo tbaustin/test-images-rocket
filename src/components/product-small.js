@@ -7,8 +7,7 @@ import ProductEcomm from "components/product-ecomm"
 
 export default class ProductSmall extends React.Component {
 	render() {
-		console.log()
-		let img = this.props.data.images[0].src
+		let img = this.props.data.images[0]
 		const description =
 			this.props.data.cut && this.props.data.grain
 				? `${this.props.data.cut}" Cut (${this.props.data.grain} grain)`

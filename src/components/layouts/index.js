@@ -31,7 +31,10 @@ export default class Layout extends React.Component {
 								this.props.home ? `homeFooter` : ``
 							}`}
 						>
-							<Footer product={this.props.product} />
+							<Footer
+								product={this.props.product}
+								defaultFooter={this.props.defaultFooter}
+							/>
 						</div>
 					</div>
 				</div>

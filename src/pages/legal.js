@@ -10,7 +10,7 @@ export default class Legal extends React.Component {
 		const { markdownRemark } = this.props.data
 		const { html } = markdownRemark
 		return (
-			<Layout title="Legal Information">
+			<Layout title="Legal Information" defaultFooter>
 				<div className={`${styles} cont`}>
 					<div className="tagline">
 						<img src={Tagline} alt="tagline" />

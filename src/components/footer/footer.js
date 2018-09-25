@@ -10,7 +10,9 @@ export default class Footer extends React.Component {
 			<footer className={styles}>
 				<section className="inner">
 					<section
-						className={this.props.product ? `constrain product` : `constrain`}
+						className={`constrain ${this.props.defaultFooter ? `default` : ``} ${
+							this.props.product ? `product` : ``
+						}`}
 					>
 						<div>
 							&copy; {year}
@@ -54,7 +56,8 @@ const styles = css`
 		padding-bottom: 0;
 		margin: auto;
 	}
-	.constrain.product {
+	.constrain.product,
+	.constrain.default {
 		max-width: 100%;
 		padding-left: 160px;
 	}
