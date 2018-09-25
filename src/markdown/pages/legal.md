@@ -22,14 +22,7 @@ To avoid extreme bodily injury when shooting an overdraw, or any other arrow sup
     <div>7677995</div>
     <div>7780554</div>
     <div>7226375</div>
-   </td>
-  </tr>
-  <tr>
-   <td>Ultimate Steel</td>
-   <td>
-    <div>6866600</div>
-    <div>6921348</div>
-    <div>7422533</div>
+    <div>8210970</div>
    </td>
   </tr>
  </tbody>

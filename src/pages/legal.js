@@ -7,10 +7,15 @@ import Tagline from "../img/tagline-8.svg"
 
 export default class Legal extends React.Component {
 	render() {
-		const { markdownRemark } = this.props.data
+		const { markdownRemark, nature, yellowNature } = this.props.data
 		const { html } = markdownRemark
 		return (
-			<Layout title="Legal Information" defaultFooter>
+			<Layout
+				title="Legal Information"
+				defaultFooter
+				nature={nature}
+				yellowNature={yellowNature}
+			>
 				<div className={`${styles} cont`}>
 					<div className="tagline">
 						<img src={Tagline} alt="tagline" />
@@ -24,6 +29,7 @@ export default class Legal extends React.Component {
 
 export const query = graphql`
 	query legalPage {
+		...layoutFragment
 		markdownRemark(fileAbsolutePath: { regex: "/src/markdown/pages/legal.md/" }) {
 			html
 		}

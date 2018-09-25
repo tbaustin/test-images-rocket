@@ -6,11 +6,11 @@ import Layout from "components/layouts/index"
 
 export default class Terms extends Component {
 	render() {
-		const { markdownRemark } = this.props.data
+		const { markdownRemark, nature, yellowNature } = this.props.data
 		const { html, frontmatter } = markdownRemark
 		const { title } = frontmatter
 		return (
-			<Layout default>
+			<Layout default nature={nature} yellowNature={yellowNature}>
 				<div className={styles.cont}>
 					<h1>{title}</h1>
 					<div
@@ -41,6 +41,7 @@ const styles = {
 
 export const query = graphql`
 	query termsPage {
+		...layoutFragment
 		markdownRemark(
 			fileAbsolutePath: { regex: "/src/markdown/pages/terms-of-service.md/" }
 		) {

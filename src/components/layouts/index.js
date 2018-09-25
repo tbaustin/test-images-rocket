@@ -94,6 +94,10 @@ const styles = css`
 		padding: 0;
 		margin: 0;
 	}
+	&.cont {
+		position: relative;
+		height: 100%;
+	}
 	@media (min-width: 1000px) {
 		.footer {
 			height: 0;

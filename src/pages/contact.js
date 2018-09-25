@@ -11,11 +11,11 @@ import Send from "../img/send.svg"
 
 export default class Contact extends React.Component {
 	render() {
-		const { markdownRemark } = this.props.data
+		const { markdownRemark, nature, yellowNature } = this.props.data
 		const { frontmatter, html } = markdownRemark
 		const { title } = frontmatter
 		return (
-			<Layout defaultFooter>
+			<Layout defaultFooter nature={nature} yellowNature={yellowNature}>
 				<main className={styles}>
 					<section className={`content`}>
 						<h1 className={`title`}>{title}</h1>
@@ -42,6 +42,7 @@ export default class Contact extends React.Component {
 
 export const query = graphql`
 	query contactPage {
+		...layoutFragment
 		markdownRemark(
 			fileAbsolutePath: { regex: "/src/markdown/pages/contact.md/" }
 		) {

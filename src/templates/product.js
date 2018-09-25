@@ -33,15 +33,20 @@ export default class ProductTemplate extends React.Component {
 	}
 
 	render() {
-		const { markdownRemark, salsifyContent } = this.props.data
+		const {
+			markdownRemark,
+			salsifyContent,
+			nature,
+			yellowNature,
+		} = this.props.data
 		const { longDescription, webImages } = salsifyContent
 		const images = webImages.map(image => image.url)
 		const { html, frontmatter } = markdownRemark
 		const { cut, grain, header, qty, title, id } = frontmatter
 		return (
-			<Layout product>
+			<Layout product nature={nature} yellowNature={yellowNature}>
 				<div className={`${styles} contProduct`}>
-					<SpecBar specs={{ blades: 3, cut: cut, grain: grain }} />
+					<SpecBar nature={nature} specs={{ blades: 3, cut: cut, grain: grain }} />
 					<section className="images">
 						<ProductImages images={images} />
 					</section>
@@ -84,6 +89,7 @@ export default class ProductTemplate extends React.Component {
 
 export const query = graphql`
 	query productTemplate($upperId: String) {
+		...layoutFragment
 		markdownRemark(frontmatter: { id: { eq: $upperId } }) {
 			html
 			frontmatter {
@@ -239,7 +245,6 @@ const styles = css`
 		}
 		.info {
 			width: calc(50% - 60px);
-			display: inline-block;
 			height: 100vh;
 		}
 		.tagline {
