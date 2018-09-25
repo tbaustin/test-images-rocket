@@ -1,0 +1,53 @@
+import React, { Component } from "react"
+import { css } from "emotion"
+import { graphql } from "gatsby"
+
+import Layout from "components/layouts/index"
+
+export default class Terms extends Component {
+	render() {
+		const { markdownRemark } = this.props.data
+		const { html, frontmatter } = markdownRemark
+		const { title } = frontmatter
+		return (
+			<Layout default>
+				<div className={styles.cont}>
+					<h1>{title}</h1>
+					<div
+						className={styles.innerHtml}
+						dangerouslySetInnerHTML={{ __html: html }}
+					/>
+				</div>
+			</Layout>
+		)
+	}
+}
+
+const styles = {
+	cont: css`
+		max-width: 1200px;
+		margin: 0 auto;
+		background: #fff;
+		padding: 30px;
+	`,
+	innerHtml: css`
+		font-family: "Gill Sans";
+		& h1,
+		h2 {
+			font-family: "Cybertron";
+		}
+	`,
+}
+
+export const query = graphql`
+	query termsPage {
+		markdownRemark(
+			fileAbsolutePath: { regex: "/src/markdown/pages/terms-of-service.md/" }
+		) {
+			html
+			frontmatter {
+				title
+			}
+		}
+	}
+`

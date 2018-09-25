@@ -26,7 +26,11 @@ export default class Layout extends React.Component {
 							{/* <FreeShipping /> */}
 							{this.props.children}
 						</main>
-						<div className={this.props.home ? `footer homeFooter` : `footer`}>
+						<div
+							className={`footer ${this.props.default ? `default` : ``} ${
+								this.props.home ? `homeFooter` : ``
+							}`}
+						>
 							<Footer product={this.props.product} />
 						</div>
 					</div>
@@ -64,7 +68,8 @@ const styles = css`
 			height: 0;
 			transform: translateY(-80px);
 		}
-		.footer.homeFooter {
+		.footer.homeFooter,
+		.footer.default {
 			height: auto;
 			padding-left: 0;
 			transform: translateY(0);

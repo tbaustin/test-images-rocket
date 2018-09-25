@@ -28,7 +28,6 @@ exports.createPages = ({ graphql, actions }) => {
 					const markdownId = node.id
 						.slice(node.id.indexOf(`-`) + 1, node.id.length)
 						.toUpperCase()
-					console.log(`page created`)
 					createPage({
 						path: `/product/${markdownId}`,
 						component: productTemplate,

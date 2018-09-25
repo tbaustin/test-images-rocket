@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
+    "form-serialize": "^0.7.2",
     "gatsby-plugin-zygote": "^1.0.3",
     "gatsby-source-product-markdown": "^1.0.9",
     "gatsby-source-salsify": "1.0.13",
