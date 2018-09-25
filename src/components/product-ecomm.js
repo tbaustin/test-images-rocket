@@ -1,7 +1,8 @@
-import React, { Fragment } from "react"
+import React from "react"
+import { css } from "emotion"
 
-import CartBtn from "components/utils/product/add-cart-button"
-import NumberInput from "components/forms/number"
+import CartBtn from "./add-cart-button"
+import NumberInput from "./forms/number"
 
 export default class ProductEcomm extends React.Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ export default class ProductEcomm extends React.Component {
 
 	render() {
 		return (
-			<Fragment>
+			<section className={styles}>
 				<div className={`ecomm ${this.props.float ? `float` : ``}`}>
 					<div className={this.props.productPage ? `qty productPage` : `qty`}>
 						<NumberInput
@@ -45,37 +46,38 @@ export default class ProductEcomm extends React.Component {
 						</CartBtn>
 					</div>
 				</div>
-				<style jsx>{`
-					.qty {
-						display: none;
-					}
-					.qty.productPage {
-						display: block;
-					}
-					.cartBtn {
-						width: 80px;
-						float: left;
-						position: relative;
-					}
-					.ecomm {
-					}
-					@media (min-width: 1000px) {
-						.float {
-							& > div {
-								float: left;
-							}
-						}
-						.ecomm {
-							lost-utility: clearfix;
-							& > div {
-								&:first-of-type {
-									margin-right: 15px;
-								}
-							}
-						}
-					}
-				`}</style>
-			</Fragment>
+			</section>
 		)
 	}
 }
+
+const styles = css`
+	.qty {
+		display: none;
+	}
+	.qty.productPage {
+		display: block;
+	}
+	.cartBtn {
+		width: 80px;
+		float: left;
+		position: relative;
+	}
+	.ecomm {
+	}
+	@media (min-width: 1000px) {
+		.float {
+			& > div {
+				float: left;
+			}
+		}
+		.ecomm {
+			lost-utility: clearfix;
+			& > div {
+				&:first-of-type {
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+`

@@ -1,9 +1,9 @@
 import React from "react"
 import Link from "gatsby-link"
 import { css } from "emotion"
+import { PriceAndStock } from "react-escalade-priceline"
 
-// import { PriceAndStock } from "react-escalade-priceline"
-// import ProductEcomm from "components/product-ecomm"
+import ProductEcomm from "components/product-ecomm"
 
 export default class ProductSmall extends React.Component {
 	render() {
@@ -29,21 +29,21 @@ export default class ProductSmall extends React.Component {
 				</h1>
 				<div className="cut">{description}</div>
 				<div className="price-qty">
-					Price <span className="qty">(QTY {this.props.data.qty})</span>
-					{/* <PriceAndStock site="rocketbroadheads" id={this.props.data.id}>
+					<PriceAndStock site="rocket" id={this.props.data.id}>
 						{({ stock, price, loading }) => {
 							if (loading) return <div>Loading...</div>
-							console.log(price)
+							if (!stock || !price) return <div>Out of Stock</div>
 							return (
 								<div>
-									<div>Price: {price}</div>
-									<div>Stock: {stock}</div>
+									<div>
+										{price} <span className="qty">(QTY {this.props.data.qty})</span>
+									</div>
+									<ProductEcomm product={this.props.data} description={description} />
 								</div>
 							)
 						}}
-					</PriceAndStock> */}
+					</PriceAndStock>
 				</div>
-				{/* <ProductEcomm product={this.props.data} description={description} /> */}
 			</div>
 		)
 	}

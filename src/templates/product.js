@@ -91,9 +91,7 @@ export const query = graphql`
 				order
 				qty
 				title
-				images {
-					src
-				}
+				images
 			}
 		}
 		salsifyContent(id: { eq: $upperId }) {

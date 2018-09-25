@@ -213,7 +213,7 @@ module.exports = {
 			options: {
 				api: `https://yh5fc30fhh.execute-api.us-east-1.amazonaws.com/production/handler`,
 				properties: {
-					site: `goalrilla`,
+					site: `rocket`,
 				},
 			},
 		},

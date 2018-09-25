@@ -7,9 +7,7 @@ grain: 100
 qty: 3
 order: 1
 images:
- - src: /uploads/ar100ms-1.png
- - src: /uploads/ar100ms-2.png
- - src: /uploads/ar100ms-3.png
+ ['/uploads/ar100ms-1.png', '/uploads/ar100ms-2.png', '/uploads/ar100ms-3.png']
 
 header: Will result in serious blood loss.
 ---

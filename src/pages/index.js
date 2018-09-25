@@ -38,9 +38,7 @@ export const query = graphql`
 						qty
 						order
 						header
-						images {
-							src
-						}
+						images
 					}
 				}
 			}
